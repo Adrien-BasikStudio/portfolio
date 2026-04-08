@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "title": "Exemple de projet",
+      "shortDesc": "Un court résumé visible sur la carte projet.",
+      "description": "Description complète visible dans la popup. Parle du contexte, des défis, des solutions choisies et du résultat final.",
+      "tags": ["Design", "Web"],
+      "image": "images/exemple.jpg",
+      "url": "https://example.com"
+    }
+  ]
+}

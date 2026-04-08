@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adrien Ciampone — Basik Studio</title>
+  <meta name="description" content="Portfolio & studio créatif d'Adrien Ciampone. Design, développement et projets créatifs." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__logo">Adrien Ciampone</div>
+    <ul class="nav__links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact" class="btn btn--nav">Contact</a></li>
+    </ul>
+    <button class="nav__burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__content">
+      <span class="hero__tag">Basik Studio</span>
+      <h1 class="hero__title">Design &amp; création<br/>qui font la différence.</h1>
+      <p class="hero__sub">Je conçois des identités visuelles, sites web et expériences créatives qui reflètent ce que vous êtes vraiment.</p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn--ghost">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero__bg"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text">
+          <span class="label">À propos</span>
+          <h2>Créatif, précis,<br/>passionné.</h2>
+          <p>Je suis Adrien Ciampone, designer et développeur indépendant basé en Suisse. Je travaille sous l'enseigne <strong>Basik Studio</strong> pour donner vie à des projets qui ont du sens — de l'identité visuelle au site web en passant par la direction artistique.</p>
+          <p>Mon approche : comprendre avant de créer. Chaque projet est unique et mérite une réponse sur mesure.</p>
+        </div>
+        <div class="about__stats">
+          <div class="stat">
+            <span class="stat__num" id="stat-projects">0</span>
+            <span class="stat__label">Projets réalisés</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">100%</span>
+            <span class="stat__label">Sur mesure</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">CH</span>
+            <span class="stat__label">Basé en Suisse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section__header">
+        <span class="label">Projets</span>
+        <h2>Dernières réalisations</h2>
+      </div>
+      <div class="projects__filters">
+        <button class="filter active" data-filter="all">Tous</button>
+      </div>
+      <div class="projects__grid" id="projects-grid">
+        <!-- Chargé dynamiquement via projects.json -->
+        <div class="projects__loading">Chargement des projets…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section__header">
+        <span class="label">Services</span>
+        <h2>Ce que je propose</h2>
+      </div>
+      <div class="services__grid">
+        <div class="service-card">
+          <div class="service-card__icon">◈</div>
+          <h3>Identité visuelle</h3>
+          <p>Logo, charte graphique, système visuel cohérent pour votre marque.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">◻</div>
+          <h3>Design web</h3>
+          <p>Conception UX/UI de sites web modernes, responsive et performants.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">◇</div>
+          <h3>Développement</h3>
+          <p>Intégration et développement front-end, sites vitrines et portfolios.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">○</div>
+          <h3>Direction artistique</h3>
+          <p>Accompagnement créatif pour vos projets print, digital ou événementiels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <span class="label">Contact</span>
+        <h2>Parlons de votre projet</h2>
+        <p>Une idée, un projet, une question ? N'hésitez pas à me contacter directement.</p>
+        <a href="mailto:adrienciampone@gmail.com" class="btn btn--primary btn--large">adrienciampone@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> Adrien Ciampone — Basik Studio</span>
+      <span>Suisse</span>
+    </div>
+  </footer>
+
+  <!-- MODAL PROJET -->
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true">
+    <div class="modal__overlay" id="modal-overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modal-close" aria-label="Fermer">✕</button>
+      <div class="modal__body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
