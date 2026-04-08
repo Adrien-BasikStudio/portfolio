@@ -1,12 +1,12 @@
 {
   "projects": [
     {
-      "title": "Exemple de projet",
-      "shortDesc": "Un court résumé visible sur la carte projet.",
-      "description": "Description complète visible dans la popup. Parle du contexte, des défis, des solutions choisies et du résultat final.",
-      "tags": ["Design", "Web"],
-      "image": "images/exemple.jpg",
-      "url": "https://example.com"
+      "title": "Basik Studio — Site web",
+      "shortDesc": "Conception et développement du site vitrine de ma propre startup créative.",
+      "description": "Design et développement complet du site web de Basik Studio, le studio créatif que j'ai fondé. Identité visuelle, UX/UI et intégration front-end réalisés de A à Z.",
+      "tags": ["Design", "Web", "Identité visuelle"],
+      "image": "images/basik-studio-screenshot.jpg",
+      "url": "https://basik-studio.ch"
     }
   ]
 }
