@@ -1,0 +1,191 @@
+/* ===========================
+   CV PAGE — CSS
+   =========================== */
+
+/* HERO */
+.cv-hero {
+  padding: 140px 0 60px;
+  background: var(--gray-1);
+  border-bottom: 1px solid var(--gray-2);
+}
+.cv-hero__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cv-hero h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.cv-hero__title {
+  font-size: 18px;
+  color: var(--gray-4);
+  margin-bottom: 24px;
+}
+.cv-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--gray-4);
+}
+.cv-hero__meta a { color: var(--accent); text-decoration: none; }
+.cv-hero__meta a:hover { text-decoration: underline; }
+
+/* BODY */
+.cv-body {
+  padding: 64px 0 100px;
+  background: var(--black);
+}
+
+/* GRID */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* BLOCKS */
+.cv-block {
+  margin-bottom: 48px;
+}
+.cv-block__title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-3);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray-2);
+}
+.cv-block__title--accent {
+  color: var(--accent);
+  border-color: rgba(232,255,74,0.2);
+}
+
+/* TAGS */
+.cv-tags {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cv-tags li {
+  font-size: 13px;
+  color: var(--gray-4);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--gray-2);
+  line-height: 1.4;
+}
+
+/* SKILLS BARS */
+.cv-skills { display: flex; flex-direction: column; gap: 14px; }
+.cv-skill__name {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-4);
+  margin-bottom: 6px;
+}
+.cv-skill__name em { color: var(--gray-3); font-style: normal; }
+.cv-skill__bar {
+  height: 3px;
+  background: var(--gray-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cv-skill__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+/* TRAITS */
+.cv-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cv-traits span {
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(232,255,74,0.08);
+  border: 1px solid rgba(232,255,74,0.2);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* HOBBIES */
+.cv-hobbies {
+  font-size: 13px;
+  color: var(--gray-4);
+  line-height: 1.8;
+}
+
+/* TIMELINE */
+.cv-timeline { display: flex; flex-direction: column; gap: 32px; }
+.cv-entry {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+}
+.cv-entry__period {
+  font-size: 12px;
+  color: var(--gray-3);
+  font-weight: 500;
+  padding-top: 2px;
+  line-height: 1.4;
+}
+.cv-entry__content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+.cv-entry__org {
+  display: block;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.cv-entry__content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cv-entry__content ul li {
+  font-size: 13px;
+  color: var(--gray-4);
+  line-height: 1.6;
+  padding-left: 12px;
+  position: relative;
+}
+.cv-entry__content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gray-3);
+}
+
+/* SIDEBAR sticky */
+.cv-sidebar { position: sticky; top: 100px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cv-grid { grid-template-columns: 1fr; }
+  .cv-sidebar { position: static; }
+  .cv-hero__inner { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .cv-entry { grid-template-columns: 1fr; gap: 4px; }
+  .cv-entry__period { font-size: 11px; color: var(--accent); }
+}
