@@ -9,8 +9,8 @@
   --white:   #fafafa;
   --gray-1:  #1a1a1a;
   --gray-2:  #2e2e2e;
-  --gray-3:  #6b6b6b;
-  --gray-4:  #b0b0b0;
+  --gray-3:  #888888;
+  --gray-4:  #cccccc;
   --gray-5:  #e8e8e8;
   --accent:  #3d9eff;
   --accent-dark: #1a7de0;
@@ -25,8 +25,8 @@ body {
   font-family: var(--font);
   background: var(--black);
   color: var(--white);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -95,9 +95,9 @@ body {
   gap: 32px;
 }
 .nav__links a {
-  color: var(--gray-4);
+  color: var(--white);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: color var(--trans);
 }
@@ -147,11 +147,12 @@ body {
   margin-bottom: 24px;
 }
 .hero__sub {
-  font-size: 18px;
-  color: var(--gray-4);
+  font-size: 19px;
+  color: var(--white);
   line-height: 1.7;
   max-width: 520px;
   margin-bottom: 40px;
+  opacity: 0.85;
 }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -169,7 +170,7 @@ body {
   line-height: 1.15;
   margin-bottom: 24px;
 }
-.about__text p { color: var(--gray-4); line-height: 1.8; margin-bottom: 16px; }
+.about__text p { color: var(--gray-4); line-height: 1.85; margin-bottom: 16px; font-size: 17px; }
 .about__text strong { color: var(--white); }
 .about__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 .about__stats { display: flex; flex-direction: column; gap: 32px; }
@@ -256,7 +257,7 @@ body {
   border-radius: 100px;
 }
 .project-card__title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-.project-card__desc { font-size: 13px; color: var(--gray-4); line-height: 1.6; }
+.project-card__desc { font-size: 14px; color: var(--gray-4); line-height: 1.6; }
 
 /* ===== SERVICES ===== */
 .services { background: var(--gray-1); }
@@ -275,7 +276,7 @@ body {
 .service-card:hover { border-color: rgba(61,158,255,0.4); transform: translateY(-4px); }
 .service-card__icon { font-size: 24px; margin-bottom: 20px; color: var(--accent); }
 .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-.service-card p { font-size: 14px; color: var(--gray-4); line-height: 1.7; }
+.service-card p { font-size: 15px; color: var(--gray-4); line-height: 1.75; }
 
 /* ===== CONTACT ===== */
 .contact { background: var(--black); }
@@ -285,7 +286,7 @@ body {
   margin: 0 auto;
 }
 .contact__inner h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; margin-bottom: 16px; }
-.contact__inner p { color: var(--gray-4); font-size: 16px; margin-bottom: 36px; }
+.contact__inner p { color: var(--gray-4); font-size: 18px; margin-bottom: 36px; }
 
 /* ===== FOOTER ===== */
 .footer {
