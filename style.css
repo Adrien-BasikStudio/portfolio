@@ -102,8 +102,32 @@ body {
   transition: color var(--trans);
 }
 .nav__links a:hover { color: var(--white); }
-.nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
-.nav__burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--trans); }
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  z-index: 110;
+}
+.nav__burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+/* Burger animé → X */
+.nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ===== HERO ===== */
 .hero {
@@ -372,8 +396,38 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav { padding: 16px 20px; }
-  .nav__links { display: none; }
   .nav__burger { display: flex; }
+
+  /* Menu mobile — panneau plein écran */
+  .nav__links {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    z-index: 105;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .nav__links.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav__links a {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .nav__links .btn--nav {
+    font-size: 16px;
+    padding: 12px 32px;
+    margin-top: 8px;
+  }
+
   .hero { padding: 100px 20px 60px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
   .footer .container { flex-direction: column; gap: 8px; text-align: center; }

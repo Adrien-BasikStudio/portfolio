@@ -8,8 +8,24 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // ===== Burger menu =====
 const burger = document.querySelector('.nav__burger');
 const navLinks = document.querySelector('.nav__links');
-burger?.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+
+function toggleMenu(force) {
+  const isOpen = force !== undefined ? force : !burger.classList.contains('open');
+  burger.classList.toggle('open', isOpen);
+  navLinks.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+burger?.addEventListener('click', () => toggleMenu());
+
+// Fermer au clic sur un lien
+navLinks?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => toggleMenu(false));
+});
+
+// Fermer avec Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') toggleMenu(false);
 });
 
 // ===== Chargement des projets =====
