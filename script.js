@@ -2,6 +2,113 @@
    BASIK STUDIO — JS
    =========================== */
 
+// ===== Animation dots grid =====
+function initCanvas() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLS = 18;
+  const ROWS = 12;
+  let W, H, dots;
+  let offset = 0;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    buildDots();
+  }
+
+  function buildDots() {
+    dots = [];
+    const cx = W / 2;
+    const cy = H / 2;
+    const fov = 400;
+
+    for (let row = -ROWS; row <= ROWS; row++) {
+      for (let col = -COLS; col <= COLS; col++) {
+        dots.push({ gx: col, gy: row });
+      }
+    }
+  }
+
+  function project(x3d, y3d, z3d) {
+    const fov = 420;
+    const scale = fov / (fov + z3d);
+    return {
+      x: W / 2 + x3d * scale,
+      y: H / 2 + y3d * scale,
+      scale
+    };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    const spacing = 80;
+    const depth   = 300;
+    const speed   = 0.4;
+    const t       = Date.now() * 0.001 * speed;
+    const zOffset = (t * depth) % depth;
+
+    // Trier par z décroissant pour peindre en arrière
+    const items = [];
+    for (let row = -ROWS; row <= ROWS; row++) {
+      for (let col = -COLS; col <= COLS; col++) {
+        for (let layer = 0; layer <= 6; layer++) {
+          const z = ((layer * depth - zOffset) % (depth * 7)) - depth * 2;
+          items.push({ gx: col, gy: row, z });
+        }
+      }
+    }
+    items.sort((a, b) => b.z - a.z);
+
+    for (const { gx, gy, z } of items) {
+      if (z < -depth * 0.5 || z > depth * 5) continue;
+
+      const p = project(gx * spacing, gy * spacing, z);
+      if (p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) continue;
+
+      const alpha = Math.min(1, Math.max(0, (1 - z / (depth * 4.5)) * p.scale * 2.5));
+      const r     = Math.max(0.5, p.scale * 5);
+
+      // Lignes horizontales
+      const right = project((gx + 1) * spacing, gy * spacing, z);
+      if (right.x > -10 && right.x < W + 10) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(right.x, right.y);
+        ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.18})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Lignes verticales
+      const down = project(gx * spacing, (gy + 1) * spacing, z);
+      if (down.y > -10 && down.y < H + 10) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(down.x, down.y);
+        ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.18})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Point
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.9})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+}
+
 // ===== Année footer =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -151,3 +258,4 @@ function animateCounter(el, target) {
 
 // ===== Init =====
 loadProjects();
+initCanvas();
