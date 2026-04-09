@@ -2,103 +2,96 @@
    BASIK STUDIO — JS
    =========================== */
 
-// ===== Animation dots grid =====
+// ===== Animation dots grid (mouse parallax) =====
 function initCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  const COLS = 18;
-  const ROWS = 12;
-  let W, H, dots;
-  let offset = 0;
+  let W, H;
+  // Point de fuite cible et courant (interpolé)
+  let mouseX = 0.5, mouseY = 0.5;
+  let currentVPX = 0, currentVPY = 0;
+
+  const SPACING = 90;   // espacement entre les points
+  const COLS    = 22;   // nombre de colonnes de chaque côté du centre
+  const ROWS    = 14;   // nombre de lignes de chaque côté du centre
+  const FOV     = 500;  // profondeur perspective
+  const LAYERS  = [0, 120, 260, 420, 600, 820]; // plans en Z
 
   function resize() {
     W = canvas.width  = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
-    buildDots();
   }
 
-  function buildDots() {
-    dots = [];
-    const cx = W / 2;
-    const cy = H / 2;
-    const fov = 400;
+  // Suivi souris (normalisé 0→1)
+  window.addEventListener('mousemove', e => {
+    mouseX = e.clientX / window.innerWidth;
+    mouseY = e.clientY / window.innerHeight;
+  });
 
-    for (let row = -ROWS; row <= ROWS; row++) {
-      for (let col = -COLS; col <= COLS; col++) {
-        dots.push({ gx: col, gy: row });
-      }
-    }
-  }
-
-  function project(x3d, y3d, z3d) {
-    const fov = 420;
-    const scale = fov / (fov + z3d);
+  function project(x3d, y3d, z, vpx, vpy) {
+    const scale = FOV / (FOV + z);
     return {
-      x: W / 2 + x3d * scale,
-      y: H / 2 + y3d * scale,
+      x: vpx + x3d * scale,
+      y: vpy + y3d * scale,
       scale
     };
   }
 
   function draw() {
+    // Interpolation douce du point de fuite vers la souris
+    const targetVPX = W  * (0.35 + mouseX * 0.3);
+    const targetVPY = H  * (0.35 + mouseY * 0.3);
+    currentVPX += (targetVPX - currentVPX) * 0.04;
+    currentVPY += (targetVPY - currentVPY) * 0.04;
+
     ctx.clearRect(0, 0, W, H);
 
-    const spacing = 80;
-    const depth   = 300;
-    const speed   = 0.4;
-    const t       = Date.now() * 0.001 * speed;
-    const zOffset = (t * depth) % depth;
+    // Dessiner du plan le plus loin au plus proche
+    const reversedLayers = [...LAYERS].reverse();
 
-    // Trier par z décroissant pour peindre en arrière
-    const items = [];
-    for (let row = -ROWS; row <= ROWS; row++) {
-      for (let col = -COLS; col <= COLS; col++) {
-        for (let layer = 0; layer <= 6; layer++) {
-          const z = ((layer * depth - zOffset) % (depth * 7)) - depth * 2;
-          items.push({ gx: col, gy: row, z });
+    for (const z of reversedLayers) {
+      const zNorm  = z / LAYERS[LAYERS.length - 1]; // 0 = loin, 1 = proche
+      const alpha  = 0.08 + zNorm * 0.55;
+      const radius = 0.8 + zNorm * 3.5;
+
+      for (let row = -ROWS; row <= ROWS; row++) {
+        for (let col = -COLS; col <= COLS; col++) {
+          const p = project(col * SPACING, row * SPACING, z, currentVPX, currentVPY);
+
+          // Ignorer si hors écran
+          if (p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) continue;
+
+          // Ligne vers le voisin droit
+          if (col < COLS) {
+            const r = project((col + 1) * SPACING, row * SPACING, z, currentVPX, currentVPY);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(r.x, r.y);
+            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.3})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+
+          // Ligne vers le voisin bas
+          if (row < ROWS) {
+            const d = project(col * SPACING, (row + 1) * SPACING, z, currentVPX, currentVPY);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(d.x, d.y);
+            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.3})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+
+          // Point
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+          ctx.fill();
         }
       }
-    }
-    items.sort((a, b) => b.z - a.z);
-
-    for (const { gx, gy, z } of items) {
-      if (z < -depth * 0.5 || z > depth * 5) continue;
-
-      const p = project(gx * spacing, gy * spacing, z);
-      if (p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) continue;
-
-      const alpha = Math.min(1, Math.max(0, (1 - z / (depth * 4.5)) * p.scale * 2.5));
-      const r     = Math.max(0.5, p.scale * 5);
-
-      // Lignes horizontales
-      const right = project((gx + 1) * spacing, gy * spacing, z);
-      if (right.x > -10 && right.x < W + 10) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(right.x, right.y);
-        ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.18})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-
-      // Lignes verticales
-      const down = project(gx * spacing, (gy + 1) * spacing, z);
-      if (down.y > -10 && down.y < H + 10) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(down.x, down.y);
-        ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.18})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-
-      // Point
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.9})`;
-      ctx.fill();
     }
 
     requestAnimationFrame(draw);
@@ -106,6 +99,8 @@ function initCanvas() {
 
   window.addEventListener('resize', resize);
   resize();
+  currentVPX = W * 0.5;
+  currentVPY = H * 0.5;
   draw();
 }
 
