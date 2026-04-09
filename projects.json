@@ -7,6 +7,14 @@
       "tags": ["Design", "Web", "Identité visuelle"],
       "image": "images/basik-studio-screenshot.jpg",
       "url": "https://basik-studio.ch"
+    },
+    {
+      "title": "ISM Lausanne — Site web & Photos",
+      "shortDesc": "Refonte du site de l'Institut Sainte-Marcelline : design, développement, photographie et analyse UX/UI.",
+      "description": "Projet complet pour l'Institut Sainte-Marcelline de Lausanne : refonte du site web (WordPress), réalisation des photos institutionnelles et analyse UX/UI approfondie pour améliorer l'expérience utilisateur et la lisibilité de l'offre de formations.",
+      "tags": ["Web", "Photographie", "UX/UI"],
+      "image": "images/ism-lausanne-screenshot.jpg",
+      "url": "https://ismlausanne.org"
     }
   ]
 }
