@@ -23,6 +23,14 @@
       "tags": ["Web", "E-commerce", "Contenus"],
       "image": "images/nakama-screenshot.jpg",
       "url": "https://comptoir-nakama.ch"
+    },
+    {
+      "title": "Lose Control Neverending Rhizome",
+      "shortDesc": "Mise en place du site, développement du Rhizome numérique interactif et création du logo.",
+      "description": "Conception et développement du site de LCNR (Lose Control Neverending Rhizome), un collectif de musiciens né pendant la pandémie. Création du logo, mise en place du site WordPress et développement de la fonctionnalité Rhizome numérique — une carte interactive des connexions entre artistes.",
+      "tags": ["Web", "Design", "Identité visuelle"],
+      "image": "images/rhizome-screenshot.jpg",
+      "url": "https://neverendingrhizome.ch"
     }
   ]
 }
