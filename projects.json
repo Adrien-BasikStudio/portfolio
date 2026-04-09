@@ -15,6 +15,14 @@
       "tags": ["Web", "Photographie", "UX/UI"],
       "image": "images/ism-lausanne-screenshot.jpg",
       "url": "https://ismlausanne.org"
+    },
+    {
+      "title": "Comptoir Nakama — E-commerce",
+      "shortDesc": "Mise en place du site e-commerce, création des contenus et système de vente en ligne pour une boutique de cartes Pokémon.",
+      "description": "Création complète du site e-commerce du Comptoir Nakama, une boutique spécialisée dans les cartes Pokémon. Mise en place de la boutique en ligne, création des contenus (textes, visuels), intégration du système de paiement et de gestion des commandes.",
+      "tags": ["Web", "E-commerce", "Contenus"],
+      "image": "images/nakama-screenshot.jpg",
+      "url": "https://comptoir-nakama.ch"
     }
   ]
 }
