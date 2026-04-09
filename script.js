@@ -2,106 +2,25 @@
    BASIK STUDIO — JS
    =========================== */
 
-// ===== Animation dots grid (mouse parallax) =====
+// ===== Vanta DOTS background =====
 function initCanvas() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let W, H;
-  // Point de fuite cible et courant (interpolé)
-  let mouseX = 0.5, mouseY = 0.5;
-  let currentVPX = 0, currentVPY = 0;
-
-  const SPACING = 90;   // espacement entre les points
-  const COLS    = 22;   // nombre de colonnes de chaque côté du centre
-  const ROWS    = 14;   // nombre de lignes de chaque côté du centre
-  const FOV     = 500;  // profondeur perspective
-  const LAYERS  = [0, 120, 260, 420, 600, 820]; // plans en Z
-
-  function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-
-  // Suivi souris (normalisé 0→1)
-  window.addEventListener('mousemove', e => {
-    mouseX = e.clientX / window.innerWidth;
-    mouseY = e.clientY / window.innerHeight;
+  if (typeof VANTA === 'undefined') return;
+  VANTA.DOTS({
+    el: '#home',
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200,
+    minWidth: 200,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: 0x3d9eff,
+    color2: 0xffffff,
+    backgroundColor: 0x0a0a0a,
+    size: 3.5,
+    spacing: 30.0,
+    showLines: false
   });
-
-  function project(x3d, y3d, z, vpx, vpy) {
-    const scale = FOV / (FOV + z);
-    return {
-      x: vpx + x3d * scale,
-      y: vpy + y3d * scale,
-      scale
-    };
-  }
-
-  function draw() {
-    // Interpolation douce du point de fuite vers la souris
-    const targetVPX = W  * (0.35 + mouseX * 0.3);
-    const targetVPY = H  * (0.35 + mouseY * 0.3);
-    currentVPX += (targetVPX - currentVPX) * 0.04;
-    currentVPY += (targetVPY - currentVPY) * 0.04;
-
-    ctx.clearRect(0, 0, W, H);
-
-    // Dessiner du plan le plus loin au plus proche
-    const reversedLayers = [...LAYERS].reverse();
-
-    for (const z of reversedLayers) {
-      const zNorm  = z / LAYERS[LAYERS.length - 1]; // 0 = loin, 1 = proche
-      const alpha  = 0.08 + zNorm * 0.55;
-      const radius = 0.8 + zNorm * 3.5;
-
-      for (let row = -ROWS; row <= ROWS; row++) {
-        for (let col = -COLS; col <= COLS; col++) {
-          const p = project(col * SPACING, row * SPACING, z, currentVPX, currentVPY);
-
-          // Ignorer si hors écran
-          if (p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) continue;
-
-          // Ligne vers le voisin droit
-          if (col < COLS) {
-            const r = project((col + 1) * SPACING, row * SPACING, z, currentVPX, currentVPY);
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(r.x, r.y);
-            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.3})`;
-            ctx.lineWidth = 0.4;
-            ctx.stroke();
-          }
-
-          // Ligne vers le voisin bas
-          if (row < ROWS) {
-            const d = project(col * SPACING, (row + 1) * SPACING, z, currentVPX, currentVPY);
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(d.x, d.y);
-            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.3})`;
-            ctx.lineWidth = 0.4;
-            ctx.stroke();
-          }
-
-          // Point
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-          ctx.fill();
-        }
-      }
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  currentVPX = W * 0.5;
-  currentVPY = H * 0.5;
-  draw();
 }
 
 // ===== Année footer =====
