@@ -34,51 +34,27 @@
     },
     {
       "title": "Notes de fève — Vidéo & Photos",
-      "shortDesc": "Direction artistique et mentorat d'apprentis pour la production d'une vidéo et de photos pour Notes de fève.",
+      "shortDesc": "Direction artistique et mentorat d'apprentis pour la production vidéo et photos de Notes de fève.",
       "description": "En tant que directeur artistique et mentor chez 3Sheds, j'ai accompagné mes apprentis dans la réalisation complète d'une vidéo promotionnelle et de photos pour Notes de fève, une chocolaterie bean-to-bar. Cadrage, direction de tournage, montage et retouche photo.",
       "tags": ["Vidéo", "Photographie", "Direction artistique"],
       "image": "https://img.youtube.com/vi/5t5nSYy8-Mc/maxresdefault.jpg",
       "url": "https://youtu.be/5t5nSYy8-Mc"
     },
     {
-      "title": "Snack-Chat — Vidéo, Photos & Site",
-      "shortDesc": "Direction artistique et mentorat : vidéo promotionnelle, photographie et site web pour le Snack-Chat.",
-      "description": "En tant que directeur artistique et mentor chez 3Sheds, j'ai guidé mes apprentis dans la réalisation d'une vidéo promotionnelle, de photos et du site web pour le Snack-Chat, un snack-bar fribourgeois. Coordination de la production, direction de tournage et supervision du développement web.",
-      "tags": ["Vidéo", "Photographie", "Web", "Direction artistique"],
+      "title": "Snack-Chat — Site, Vidéo & Photos",
+      "shortDesc": "Direction artistique et mentorat : site web, vidéo promotionnelle et photographie pour le Snack-Chat.",
+      "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et mentor chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle (youtu.be/eJJU3L5uQNo) et photos. Coordination de la production, direction de tournage et supervision du développement web.",
+      "tags": ["Web", "Vidéo", "Photographie", "Direction artistique"],
       "image": "images/snack-chat-screenshot.jpg",
       "url": "https://snack-chat.ch"
     },
     {
-      "title": "Snack-Chat — Vidéo apprentis",
-      "shortDesc": "Direction artistique d'une vidéo promotionnelle réalisée avec mes apprentis pour le Snack-Chat.",
-      "description": "Production vidéo réalisée avec mes apprentis de 3Sheds pour le Snack-Chat. Direction artistique complète : storyboard, tournage, montage. Un projet pédagogique qui a donné lieu à un contenu professionnel pour le client.",
-      "tags": ["Vidéo", "Direction artistique"],
-      "image": "https://img.youtube.com/vi/eJJU3L5uQNo/maxresdefault.jpg",
-      "url": "https://youtu.be/eJJU3L5uQNo"
-    },
-    {
       "title": "Churros n Co — Photo & Vidéo",
-      "shortDesc": "Direction artistique, photographie et vidéo pour la marque Churros n Co.",
-      "description": "Direction artistique complète pour Churros n Co : production photo et vidéo promotionnelle. Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
+      "shortDesc": "Direction artistique, photographie et deux productions vidéo pour la marque Churros n Co.",
+      "description": "Direction artistique complète pour Churros n Co : production photo et deux vidéos promotionnelles (youtu.be/M85rMEmVnO8 et youtu.be/i9gxiJr88yU). Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
       "tags": ["Vidéo", "Photographie", "Direction artistique"],
       "image": "https://img.youtube.com/vi/M85rMEmVnO8/maxresdefault.jpg",
       "url": "https://youtu.be/M85rMEmVnO8"
-    },
-    {
-      "title": "Churros n Co — Vidéo 2",
-      "shortDesc": "Direction artistique, photographie et vidéo pour la marque Churros n Co.",
-      "description": "Deuxième production vidéo pour Churros n Co. Direction artistique, tournage et post-production pour promouvoir la marque et ses produits avec une identité visuelle cohérente.",
-      "tags": ["Vidéo", "Photographie", "Direction artistique"],
-      "image": "https://img.youtube.com/vi/i9gxiJr88yU/maxresdefault.jpg",
-      "url": "https://youtu.be/i9gxiJr88yU"
-    },
-    {
-      "title": "Photographie — Instagram",
-      "shortDesc": "Portfolio photographique : portraits, paysages et reportages. 129 publications, 1760 followers.",
-      "description": "Ma pratique photographique personnelle, partagée sur Instagram. Portraits en lumière naturelle, paysages suisses, reportages et collaborations créatives. Shooting avec Sony Alpha. Disponible pour des projets photo sur demande.",
-      "tags": ["Photographie", "Portrait", "Création"],
-      "image": "images/instagram-adrien-ciampone.jpg",
-      "url": "https://www.instagram.com/adrien.ciampone/"
     },
     {
       "title": "HETS Fribourg — Vidéo Agisme",
@@ -87,6 +63,14 @@
       "tags": ["Vidéo", "Direction artistique"],
       "image": "images/hets-fribourg-screenshot.jpg",
       "url": "https://tube.switch.ch/videos/XZeTCBMaEd"
+    },
+    {
+      "title": "Photographie — Instagram",
+      "shortDesc": "Portfolio photographique personnel : portraits, paysages et reportages. 129 publications, 1760 followers.",
+      "description": "Ma pratique photographique personnelle, partagée sur Instagram. Portraits en lumière naturelle, paysages suisses, reportages et collaborations créatives. Shooting avec Sony Alpha. Disponible pour des projets photo sur demande.",
+      "tags": ["Photographie", "Portrait", "Création"],
+      "image": "images/instagram-adrien-ciampone.jpg",
+      "url": "https://www.instagram.com/adrien.ciampone/"
     }
   ]
 }
