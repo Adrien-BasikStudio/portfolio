@@ -55,6 +55,14 @@
       "tags": ["Vidéo", "Direction artistique"],
       "image": "https://img.youtube.com/vi/eJJU3L5uQNo/maxresdefault.jpg",
       "url": "https://youtu.be/eJJU3L5uQNo"
+    },
+    {
+      "title": "HETS Fribourg — Vidéo Agisme",
+      "shortDesc": "Direction artistique d'une vidéo institutionnelle pour la Haute École de Travail Social de Fribourg.",
+      "description": "Direction artistique de la vidéo institutionnelle de la HETS Fribourg (HES-SO) avec le professeur Christian Maggiori sur le thème de l'âgisme. Coordination du tournage, direction des intervenants, montage et post-production pour un contenu académique professionnel.",
+      "tags": ["Vidéo", "Direction artistique"],
+      "image": "images/hets-fribourg-screenshot.jpg",
+      "url": "https://tube.switch.ch/videos/XZeTCBMaEd"
     }
   ]
 }
