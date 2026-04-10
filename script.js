@@ -105,10 +105,13 @@ function renderProjects(projects) {
 
   grid.innerHTML = projects.map((p, i) => `
     <article class="project-card" data-index="${i}" role="button" tabindex="0" aria-label="Voir le projet ${p.title}">
-      ${p.image
-        ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" loading="lazy" />`
-        : `<div class="project-card__img--placeholder">◈</div>`
-      }
+      <div class="project-card__media">
+        ${p.image
+          ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" loading="lazy" />`
+          : `<div class="project-card__img--placeholder">◈</div>`
+        }
+        ${p.video ? `<div class="project-card__play">▶</div>` : ''}
+      </div>
       <div class="project-card__body">
         <div class="project-card__tags">
           ${(p.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
