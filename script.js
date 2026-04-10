@@ -110,7 +110,6 @@ function renderProjects(projects) {
           ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" loading="lazy" />`
           : `<div class="project-card__img--placeholder">◈</div>`
         }
-        ${p.video ? `<div class="project-card__play">▶</div>` : ''}
       </div>
       <div class="project-card__body">
         <div class="project-card__tags">
