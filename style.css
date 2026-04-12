@@ -313,6 +313,39 @@ body {
   justify-content: space-between;
 }
 .footer span { font-size: 13px; color: var(--gray-3); }
+.footer__links {
+  display: flex;
+  gap: 24px;
+}
+.footer__links a {
+  font-size: 13px;
+  color: var(--gray-3);
+  text-decoration: none;
+  transition: color var(--trans);
+}
+.footer__links a:hover { color: var(--white); }
+
+/* LinkedIn nav icon */
+.nav__linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(61,158,255,0.12);
+  border: 1.5px solid rgba(61,158,255,0.3);
+  color: var(--accent) !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--trans), border-color var(--trans);
+}
+.nav__linkedin:hover {
+  background: rgba(61,158,255,0.25) !important;
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
 
 /* ===== MODAL ===== */
 .modal {
