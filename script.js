@@ -136,6 +136,16 @@ const modalClose = document.getElementById('modal-close');
 const modalOverlay = document.getElementById('modal-overlay');
 
 function openModal(project) {
+  // Génère les liens : priorité au tableau "links", sinon l'url simple
+  let linksHtml = '';
+  if (project.links && project.links.length) {
+    linksHtml = `<div class="modal__links">
+      ${project.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="modal__link">${l.label} →</a>`).join('')}
+    </div>`;
+  } else if (project.url) {
+    linksHtml = `<a href="${project.url}" target="_blank" rel="noopener" class="modal__link">Voir le projet →</a>`;
+  }
+
   modalBody.innerHTML = `
     ${project.image ? `<img src="${project.image}" alt="${project.title}" />` : ''}
     <div class="modal__info">
@@ -144,7 +154,7 @@ function openModal(project) {
       </div>
       <h3>${project.title}</h3>
       <p>${project.description || project.shortDesc || ''}</p>
-      ${project.url ? `<a href="${project.url}" target="_blank" rel="noopener" class="modal__link">Voir le projet →</a>` : ''}
+      ${linksHtml}
     </div>
   `;
   modal.classList.add('open');

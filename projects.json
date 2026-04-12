@@ -43,18 +43,26 @@
     {
       "title": "Snack-Chat — Site, Vidéo & Photos",
       "shortDesc": "Direction artistique et mentorat : site web, vidéo promotionnelle et photographie pour le Snack-Chat.",
-      "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et mentor chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle (youtu.be/eJJU3L5uQNo) et photos. Coordination de la production, direction de tournage et supervision du développement web.",
+      "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et mentor chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle et photos. Coordination de la production, direction de tournage et supervision du développement web.",
       "tags": ["Web", "Vidéo", "Photographie", "Direction artistique"],
       "image": "images/snack-chat-screenshot.jpg",
-      "url": "https://snack-chat.ch"
+      "url": "https://snack-chat.ch",
+      "links": [
+        { "label": "Site web", "url": "https://snack-chat.ch" },
+        { "label": "Vidéo", "url": "https://youtu.be/eJJU3L5uQNo" }
+      ]
     },
     {
       "title": "Churros n Co — Photo & Vidéo",
       "shortDesc": "Direction artistique, photographie et deux productions vidéo pour la marque Churros n Co.",
-      "description": "Direction artistique complète pour Churros n Co : production photo et deux vidéos promotionnelles (youtu.be/M85rMEmVnO8 et youtu.be/i9gxiJr88yU). Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
+      "description": "Direction artistique complète pour Churros n Co : production photo et deux vidéos promotionnelles. Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
       "tags": ["Vidéo", "Photographie", "Direction artistique"],
       "image": "https://img.youtube.com/vi/M85rMEmVnO8/maxresdefault.jpg",
-      "url": "https://youtu.be/M85rMEmVnO8"
+      "url": "https://youtu.be/M85rMEmVnO8",
+      "links": [
+        { "label": "Vidéo 1", "url": "https://youtu.be/M85rMEmVnO8" },
+        { "label": "Vidéo 2", "url": "https://youtu.be/i9gxiJr88yU" }
+      ]
     },
     {
       "title": "HETS Fribourg — Vidéo Agisme",

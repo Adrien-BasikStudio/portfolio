@@ -404,17 +404,33 @@ body {
 .modal__tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .modal__info h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
 .modal__info p { color: var(--gray-4); line-height: 1.8; font-size: 15px; }
+.modal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
 .modal__link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-top: 24px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  background: rgba(61,158,255,0.1);
+  border: 1.5px solid rgba(61,158,255,0.3);
   color: var(--accent);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
+  transition: background var(--trans), border-color var(--trans);
 }
-.modal__link:hover { text-decoration: underline; }
+.modal__links .modal__link { margin-top: 0; }
+.modal__link:hover {
+  background: rgba(61,158,255,0.2);
+  border-color: var(--accent);
+  text-decoration: none;
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
