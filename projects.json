@@ -1,15 +1,15 @@
 {
   "projects": [
     {
-      "title": "Atout Poil — Identité visuelle & Charte graphique",
+      "title": "Atout Poil : identité visuelle & charte graphique",
       "shortDesc": "Charte graphique, carte de visite, rappel de rendez-vous et habillage vitrine pour un salon de toilettage à Fribourg.",
-      "description": "Projet réalisé en tant que formateur et mentor chez 3Sheds. Création complète de l'identité visuelle d'Atout Poil, salon de toilettage à Fribourg : logo, charte graphique, carte de visite recto/verso, carte de rappel de rendez-vous et habillage des vitrines du commerce. Un projet pédagogique mené avec des apprentis, du brief au résultat final appliqué en boutique.",
+      "description": "Projet réalisé en tant que formateur chez 3Sheds. Création complète de l'identité visuelle d'Atout Poil, salon de toilettage à Fribourg : logo, charte graphique, carte de visite recto/verso, carte de rappel de rendez-vous et habillage des vitrines du commerce. Un projet pédagogique mené avec des apprentis, du brief au résultat final appliqué en boutique.",
       "tags": ["Design", "Identité visuelle", "Formation"],
       "image": "images/atout-poil-carte.jpg",
       "url": ""
     },
     {
-      "title": "Basik Studio — Site web",
+      "title": "Site Basik Studio",
       "shortDesc": "Conception et développement du site vitrine de ma propre startup créative.",
       "description": "Design et développement complet du site web de Basik Studio, le studio créatif que j'ai fondé. Identité visuelle, UX/UI et intégration front-end réalisés de A à Z.",
       "tags": ["Design", "Web", "Identité visuelle"],
@@ -17,7 +17,7 @@
       "url": "https://basik-studio.ch"
     },
     {
-      "title": "ISM Lausanne — Site web & Photos",
+      "title": "ISM Lausanne : site web & photos",
       "shortDesc": "Refonte du site de l'Institut Sainte-Marcelline : design, développement, photographie et analyse UX/UI.",
       "description": "Projet complet pour l'Institut Sainte-Marcelline de Lausanne : refonte du site web (WordPress), réalisation des photos institutionnelles et analyse UX/UI approfondie pour améliorer l'expérience utilisateur et la lisibilité de l'offre de formations.",
       "tags": ["Web", "Photographie", "UX/UI"],
@@ -25,7 +25,7 @@
       "url": "https://ismlausanne.org"
     },
     {
-      "title": "Comptoir Nakama — E-commerce",
+      "title": "Comptoir Nakama : e-commerce",
       "shortDesc": "Mise en place du site e-commerce, création des contenus et système de vente en ligne pour une boutique de cartes Pokémon.",
       "description": "Création complète du site e-commerce du Comptoir Nakama, une boutique spécialisée dans les cartes Pokémon. Mise en place de la boutique en ligne, création des contenus (textes, visuels), intégration du système de paiement et de gestion des commandes.",
       "tags": ["Web", "E-commerce", "Contenus"],
@@ -35,23 +35,23 @@
     {
       "title": "Lose Control Neverending Rhizome",
       "shortDesc": "Mise en place du site, développement du Rhizome numérique interactif et création du logo.",
-      "description": "Conception et développement du site de LCNR (Lose Control Neverending Rhizome), un collectif de musiciens né pendant la pandémie. Création du logo, mise en place du site WordPress et développement de la fonctionnalité Rhizome numérique — une carte interactive des connexions entre artistes.",
+      "description": "Conception et développement du site de LCNR (Lose Control Neverending Rhizome), un collectif de musiciens né pendant la pandémie. Création du logo, mise en place du site WordPress et développement de la fonctionnalité Rhizome numérique, une carte interactive des connexions entre artistes.",
       "tags": ["Web", "Design", "Identité visuelle"],
       "image": "images/rhizome-screenshot.jpg",
       "url": "https://neverendingrhizome.ch"
     },
     {
-      "title": "Notes de fève — Vidéo & Photos",
-      "shortDesc": "Direction artistique et mentorat d'apprentis pour la production vidéo et photos de Notes de fève.",
-      "description": "En tant que directeur artistique et mentor chez 3Sheds, j'ai accompagné mes apprentis dans la réalisation complète d'une vidéo promotionnelle et de photos pour Notes de fève, une chocolaterie bean-to-bar. Cadrage, direction de tournage, montage et retouche photo.",
+      "title": "Notes de fève : vidéo & photos",
+      "shortDesc": "Direction artistique et formation d'apprentis pour la production vidéo et photos de Notes de fève.",
+      "description": "En tant que directeur artistique et formateur chez 3Sheds, j'ai encadré mes apprentis dans la réalisation d'une vidéo promotionnelle et de photos pour Notes de fève, une chocolaterie bean-to-bar. Cadrage, direction de tournage, montage et retouche photo.",
       "tags": ["Vidéo", "Photographie", "Direction artistique", "Formation"],
       "image": "https://img.youtube.com/vi/5t5nSYy8-Mc/maxresdefault.jpg",
       "url": "https://youtu.be/5t5nSYy8-Mc"
     },
     {
-      "title": "Snack-Chat — Site, Vidéo & Photos",
-      "shortDesc": "Direction artistique et mentorat : site web, vidéo promotionnelle et photographie pour le Snack-Chat.",
-      "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et mentor chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle et photos. Coordination de la production, direction de tournage et supervision du développement web.",
+      "title": "Snack-Chat : site, vidéo & photos",
+      "shortDesc": "Direction artistique et formation : site web, vidéo promotionnelle et photographie pour le Snack-Chat.",
+      "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et formateur chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle et photos. Coordination de la production, direction de tournage et supervision du développement web.",
       "tags": ["Web", "Vidéo", "Photographie", "Direction artistique", "Formation"],
       "image": "images/snack-chat-screenshot.jpg",
       "url": "https://snack-chat.ch",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "title": "Churros n Co — Photo & Vidéo",
+      "title": "Churros n Co : photo & vidéo",
       "shortDesc": "Direction artistique, photographie et deux productions vidéo pour la marque Churros n Co.",
       "description": "Direction artistique complète pour Churros n Co : production photo et deux vidéos promotionnelles. Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
       "tags": ["Vidéo", "Photographie", "Direction artistique", "Formation"],
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "title": "HETS Fribourg — Vidéo Agisme",
+      "title": "HETS Fribourg : vidéo sur l'âgisme",
       "shortDesc": "Direction artistique d'une vidéo institutionnelle pour la Haute École de Travail Social de Fribourg.",
       "description": "Direction artistique de la vidéo institutionnelle de la HETS Fribourg (HES-SO) avec le professeur Christian Maggiori sur le thème de l'âgisme. Coordination du tournage, direction des intervenants, montage et post-production pour un contenu académique professionnel.",
       "tags": ["Vidéo", "Direction artistique", "Formation"],
@@ -81,8 +81,8 @@
       "url": "https://tube.switch.ch/videos/XZeTCBMaEd"
     },
     {
-      "title": "Photographie — Instagram",
-      "shortDesc": "Portfolio photographique personnel : portraits, paysages et reportages. 129 publications, 1760 followers.",
+      "title": "Photographie sur Instagram",
+      "shortDesc": "Portfolio photo personnel : portraits, paysages et reportages. 129 publications, 1760 followers.",
       "description": "Ma pratique photographique personnelle, partagée sur Instagram. Portraits en lumière naturelle, paysages suisses, reportages et collaborations créatives. Shooting avec Sony Alpha. Disponible pour des projets photo sur demande.",
       "tags": ["Photographie", "Portrait", "Création"],
       "image": "images/instagram-adrien-ciampone.jpg",
