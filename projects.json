@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "title": "Atout Poil — Identité visuelle & Charte graphique",
+      "shortDesc": "Charte graphique, carte de visite, rappel de rendez-vous et habillage vitrine pour un salon de toilettage à Fribourg.",
+      "description": "Projet réalisé en tant que formateur et mentor chez 3Sheds. Création complète de l'identité visuelle d'Atout Poil, salon de toilettage à Fribourg : logo, charte graphique, carte de visite recto/verso, carte de rappel de rendez-vous et habillage des vitrines du commerce. Un projet pédagogique mené avec des apprentis, du brief au résultat final appliqué en boutique.",
+      "tags": ["Design", "Identité visuelle", "Mentorat"],
+      "image": "images/atout-poil-carte.jpg",
+      "url": ""
+    },
+    {
       "title": "Basik Studio — Site web",
       "shortDesc": "Conception et développement du site vitrine de ma propre startup créative.",
       "description": "Design et développement complet du site web de Basik Studio, le studio créatif que j'ai fondé. Identité visuelle, UX/UI et intégration front-end réalisés de A à Z.",
