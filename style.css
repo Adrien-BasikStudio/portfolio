@@ -175,7 +175,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: stretch;
+  align-items: start;
 }
 .about__text h2 {
   font-size: clamp(28px, 4vw, 42px);
@@ -188,15 +188,12 @@ body {
 .about__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 /* Option B — photo portrait + stat cards en overlay */
 .about__photo-col {
-  display: flex;
-  flex-direction: column;
-  padding-top: 52px; /* label height — aligne le haut de la photo avec le h2 */
+  padding-top: 52px; /* saute la hauteur du label, aligne avec le h2 */
 }
 
 .about__photo-wrap {
   position: relative;
-  flex: 1;
-  min-height: 0;
+  height: clamp(380px, 38vw, 480px); /* s'adapte à la largeur d'écran */
 }
 
 .about__photo {
