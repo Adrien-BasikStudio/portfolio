@@ -55,6 +55,12 @@ const filtersContainer = document.querySelector('.projects__filters');
 const statProjects = document.getElementById('stat-projects');
 
 let allProjects = [];
+let currentProjects = [];
+let visibleCount = 0;
+
+function getPageSize() {
+  return window.innerWidth <= 768 ? 3 : 9;
+}
 
 async function loadProjects() {
   try {
@@ -97,13 +103,8 @@ function buildFilters(projects) {
   });
 }
 
-function renderProjects(projects) {
-  if (!projects.length) {
-    grid.innerHTML = '<p style="color:#6b6b6b;grid-column:1/-1;padding:40px 0">Aucun projet dans cette catégorie.</p>';
-    return;
-  }
-
-  grid.innerHTML = projects.map((p, i) => `
+function cardHTML(p, i) {
+  return `
     <article class="project-card" data-index="${i}" role="button" tabindex="0" aria-label="Voir le projet ${p.title}">
       <div class="project-card__media">
         ${p.image
@@ -118,15 +119,68 @@ function renderProjects(projects) {
         <h3 class="project-card__title">${p.title}</h3>
         <p class="project-card__desc">${p.shortDesc || ''}</p>
       </div>
-    </article>
-  `).join('');
+    </article>`;
+}
 
-  // Événements click sur les cartes
+function attachCardEvents(projects) {
   grid.querySelectorAll('.project-card').forEach(card => {
     const open = () => openModal(projects[+card.dataset.index]);
     card.addEventListener('click', open);
     card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
   });
+}
+
+function renderProjects(projects) {
+  currentProjects = projects;
+  visibleCount = 0;
+
+  if (!projects.length) {
+    grid.innerHTML = '<p style="color:#6b6b6b;grid-column:1/-1;padding:40px 0">Aucun projet dans cette catégorie.</p>';
+    updateMoreBtn(projects);
+    return;
+  }
+
+  visibleCount = Math.min(getPageSize(), projects.length);
+  grid.innerHTML = projects.slice(0, visibleCount).map((p, i) => cardHTML(p, i)).join('');
+  attachCardEvents(projects);
+  updateMoreBtn(projects);
+}
+
+function showMore() {
+  const pageSize = getPageSize();
+  const from = visibleCount;
+  const to = Math.min(visibleCount + pageSize, currentProjects.length);
+
+  currentProjects.slice(from, to).forEach((p, i) => {
+    const div = document.createElement('div');
+    div.innerHTML = cardHTML(p, from + i);
+    const card = div.firstElementChild;
+    grid.appendChild(card);
+    const open = () => openModal(currentProjects[+card.dataset.index]);
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+  });
+
+  visibleCount = to;
+  updateMoreBtn(currentProjects);
+}
+
+function updateMoreBtn(projects) {
+  let btn = document.getElementById('projects-more');
+  if (!btn) {
+    btn = document.createElement('div');
+    btn.id = 'projects-more';
+    btn.className = 'projects__more';
+    grid.parentElement.appendChild(btn);
+  }
+
+  if (visibleCount < projects.length) {
+    const remaining = projects.length - visibleCount;
+    btn.innerHTML = `<button class="btn btn--ghost projects__more-btn" onclick="showMore()">Voir plus <span>(${remaining})</span></button>`;
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
 }
 
 // ===== Modal =====
