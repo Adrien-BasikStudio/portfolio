@@ -195,12 +195,19 @@ body {
 }
 .about__photo {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
   border-radius: 16px;
   display: block;
   filter: grayscale(15%);
   transition: filter 0.4s ease;
+}
+.about__photo-col {
+  align-self: stretch;
+}
+.about__photo-wrap {
+  height: 100%;
 }
 .about__photo:hover { filter: grayscale(0%); }
 
@@ -227,15 +234,15 @@ body {
   pointer-events: none;
 }
 
-/* Stats sous la photo */
+/* Stats dans la colonne texte, sous les boutons */
 .about__stats-row {
   display: flex;
-  justify-content: space-between;
-  margin-top: 28px;
-  padding-top: 24px;
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid var(--gray-2);
 }
-.stat { text-align: center; }
+.stat { text-align: left; }
 .stat__num { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--white); }
 .stat__label { font-size: 11px; color: var(--gray-3); margin-top: 4px; display: block; }
 
@@ -522,8 +529,10 @@ body {
 
   .hero { padding: 100px 20px 60px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
-  .about__photo { aspect-ratio: 4/3; }
-  .about__stats-row { justify-content: space-around; }
+  .about__photo { aspect-ratio: 4/3; height: auto; }
+  .about__photo-col { align-self: auto; }
+  .about__photo-wrap { height: auto; }
+  .about__stats-row { gap: 20px; }
   .footer .container { flex-direction: column; gap: 8px; text-align: center; }
   .section { padding: 70px 0; }
 }
