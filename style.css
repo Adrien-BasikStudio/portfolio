@@ -175,7 +175,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: stretch;
 }
 .about__text h2 {
   font-size: clamp(28px, 4vw, 42px);
@@ -189,18 +189,19 @@ body {
 /* Option B — photo portrait + stat cards en overlay */
 .about__photo-col {
   display: flex;
-  align-items: flex-start;
-  padding-top: 36px; /* aligne visuellement avec le h2 */
+  flex-direction: column;
+  padding-top: 52px; /* label height — aligne le haut de la photo avec le h2 */
 }
 
 .about__photo-wrap {
   position: relative;
-  width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .about__photo {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
   border-radius: 16px;
@@ -512,10 +513,12 @@ body {
 
   .hero { padding: 100px 20px 60px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
-  .about__photo { aspect-ratio: 4/3; }
   .about__photo-col { padding-top: 0; }
-  .stat-card--1, .stat-card--2 { right: 10px; }
-  .stat-card--3 { left: 10px; }
+  .about__photo-wrap { flex: none; }
+  .about__photo { height: auto; aspect-ratio: 4/3; }
+  .stat-card--1 { top: 12px; right: 12px; }
+  .stat-card--2 { bottom: 70px; right: 12px; }
+  .stat-card--3 { bottom: 12px; left: 12px; }
   .footer .container { flex-direction: column; gap: 8px; text-align: center; }
   .section { padding: 70px 0; }
 }
