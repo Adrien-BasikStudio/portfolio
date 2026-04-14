@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "title": "Label Fait Maison : vidéo & direction artistique",
+      "shortDesc": "Tournage et montage vidéo pour le Label Fait Maison à Fribourg, en tant que formateur chez 3Sheds.",
+      "description": "Direction artistique, tournage et montage vidéo pour le Label Fait Maison, un label fribourgeois qui valorise les produits artisanaux locaux. Projet réalisé chez 3Sheds en tant que formateur, en encadrant les apprentis sur l'ensemble de la production vidéo.",
+      "tags": ["Vidéo", "Direction artistique", "Formation"],
+      "image": "images/label-fait-maison.jpg",
+      "url": "https://www.instagram.com/reel/DHbj3dmon2u/"
+    },
+    {
       "title": "Atout Poil : identité visuelle & charte graphique",
       "shortDesc": "Charte graphique, carte de visite, rappel de rendez-vous et habillage vitrine pour un salon de toilettage à Fribourg.",
       "description": "Projet réalisé en tant que formateur chez 3Sheds. Création complète de l'identité visuelle d'Atout Poil, salon de toilettage à Fribourg : logo, charte graphique, carte de visite recto/verso, carte de rappel de rendez-vous et habillage des vitrines du commerce. Un projet pédagogique mené avec des apprentis, du brief au résultat final appliqué en boutique.",

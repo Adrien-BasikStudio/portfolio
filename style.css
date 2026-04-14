@@ -175,7 +175,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: start;
+  align-items: stretch;
 }
 .about__text h2 {
   font-size: clamp(28px, 4vw, 42px);
