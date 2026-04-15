@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "title": "Média Formation : suivi pédagogique des apprentis",
+      "shortDesc": "Outil interne de suivi de formation pour les apprentis médiamaticiens, digital business et année préparatoire chez 3Sheds.",
+      "description": "Conception et mise en place d'un outil de suivi pédagogique pour 3Sheds, permettant de visualiser la progression des apprentis (médiamaticiens, digital business developers, année préparatoire) à travers des graphiques radar par compétence. L'outil centralise les projets évalués, les points cumulés et les profils individuels pour faciliter le suivi formateur et les entretiens de progression.",
+      "tags": ["Formation", "UX/UI", "Web"],
+      "image": "images/media-formation.jpg",
+      "url": ""
+    },
+    {
       "title": "Label Fait Maison : vidéo & direction artistique",
       "shortDesc": "Tournage et montage vidéo pour le Label Fait Maison à Fribourg, en tant que formateur chez 3Sheds.",
       "description": "Direction artistique, tournage et montage vidéo pour le Label Fait Maison, un label fribourgeois qui valorise les produits artisanaux locaux. Projet réalisé chez 3Sheds en tant que formateur, en encadrant les apprentis sur l'ensemble de la production vidéo.",
