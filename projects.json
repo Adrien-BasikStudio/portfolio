@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "title": "TimbrApp : application de timbrage",
+      "shortDesc": "Application mobile personnelle pour le suivi du temps de travail, avec récap hebdo, objectifs et export des heures.",
+      "description": "Projet personnel développé sous Basik-Studio. TimbrApp est une application de timbrage mobile permettant de pointer les arrivées et départs, suivre les heures travaillées par semaine et par mois, consulter l'historique des sessions et exporter les données. Interface soignée avec statuts En service / En pause, progression visuelle par rapport aux objectifs fixés, et navigation par sections (Accueil, Récap, Objectifs, Profil).",
+      "tags": ["Webapp", "UX/UI", "Design"],
+      "image": "images/timbrapp.jpg",
+      "url": "https://timbrapp.basik-studio.ch/"
+    },
+    {
       "title": "Média Formation : suivi pédagogique des apprentis",
       "shortDesc": "Outil interne de suivi de formation pour les apprentis médiamaticiens, digital business et année préparatoire chez 3Sheds.",
       "description": "Conception et mise en place d'un outil de suivi pédagogique pour 3Sheds, permettant de visualiser la progression des apprentis (médiamaticiens, digital business developers, année préparatoire) à travers des graphiques radar par compétence. L'outil centralise les projets évalués, les points cumulés et les profils individuels pour faciliter le suivi formateur et les entretiens de progression.",
