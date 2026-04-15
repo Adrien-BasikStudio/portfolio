@@ -22,6 +22,9 @@
       <li><a href="index.html#contact" class="btn btn--nav">Contact</a></li>
       <li><a href="https://www.linkedin.com/in/ciamponeadrien/" target="_blank" rel="noopener" class="nav__linkedin" aria-label="LinkedIn">in</a></li>
     </ul>
+    <button class="nav__burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- HERO CV -->
@@ -320,6 +323,14 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const burger = document.querySelector('.nav__burger');
+    const navLinks = document.querySelector('.nav__links');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav__links--open');
+      burger.classList.toggle('nav__burger--open');
+    });
+  </script>
 </body>
 </html>
