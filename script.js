@@ -236,6 +236,61 @@ function animateCounter(el, target) {
   }, 30);
 }
 
+// ===== Formulaire de contact =====
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+  const submitBtn  = document.getElementById('cf-submit');
+  const feedback   = document.getElementById('cf-feedback');
+
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    feedback.textContent = '';
+    feedback.className = 'contact-form__feedback';
+
+    // Validation front légère
+    let valid = true;
+    ['cf-name', 'cf-email', 'cf-message'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+      else el.classList.remove('error');
+    });
+    if (!valid) {
+      feedback.textContent = 'Merci de remplir les champs obligatoires.';
+      feedback.classList.add('error');
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    try {
+      const res  = await fetch('contact.php', { method: 'POST', body: new FormData(contactForm) });
+      const data = await res.json();
+
+      if (data.success) {
+        feedback.textContent = data.message;
+        feedback.classList.add('success');
+        contactForm.reset();
+      } else {
+        feedback.textContent = data.message;
+        feedback.classList.add('error');
+      }
+    } catch {
+      feedback.textContent = "Erreur réseau. Réessayez ou écrivez à ciampone@ik.me";
+      feedback.classList.add('error');
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Retire la classe error au premier keystroke
+  contactForm.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('input', () => el.classList.remove('error'));
+  });
+}
+
 // ===== Init =====
 loadProjects();
 initCanvas();

@@ -135,8 +135,41 @@
       <div class="contact__inner">
         <span class="label">Contact</span>
         <h2>Parlons de votre projet</h2>
-        <p>Une idée, un projet, une question ? N'hésitez pas à me contacter directement.</p>
-        <a href="mailto:ciampone@ik.me" class="btn btn--primary btn--large">ciampone@ik.me</a>
+        <p>Une idée, un projet, une question ? Remplissez le formulaire, je vous réponds rapidement.</p>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="contact-form__honey" />
+
+          <div class="contact-form__row">
+            <div class="contact-form__group">
+              <label for="cf-name">Nom</label>
+              <input type="text" id="cf-name" name="name" placeholder="Votre nom" required />
+            </div>
+            <div class="contact-form__group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="votre@email.com" required />
+            </div>
+          </div>
+
+          <div class="contact-form__group">
+            <label for="cf-subject">Sujet</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="De quoi s'agit-il ?" />
+          </div>
+
+          <div class="contact-form__group">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande…" required></textarea>
+          </div>
+
+          <div class="contact-form__footer">
+            <button type="submit" class="btn btn--primary btn--large" id="cf-submit">
+              <span class="cf-btn-text">Envoyer le message</span>
+              <span class="cf-btn-loader" aria-hidden="true"></span>
+            </button>
+            <div class="contact-form__feedback" id="cf-feedback" aria-live="polite"></div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
