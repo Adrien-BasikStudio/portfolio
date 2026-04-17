@@ -16,18 +16,16 @@ if (!empty($_POST['website'])) {
 }
 
 // Récupération et nettoyage des champs
-$name    = trim(strip_tags($_POST['name']    ?? ''));
 $email   = trim(strip_tags($_POST['email']   ?? ''));
 $subject = trim(strip_tags($_POST['subject'] ?? ''));
 $message = trim(strip_tags($_POST['message'] ?? ''));
 
 // Validation
 $errors = [];
-if (empty($name))                        $errors[] = 'Le nom est requis.';
-if (empty($email))                       $errors[] = "L'email est requis.";
-elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "L'email n'est pas valide.";
-if (empty($message))                     $errors[] = 'Le message est requis.';
-if (strlen($message) > 5000)             $errors[] = 'Le message est trop long (5000 caractères max).';
+if (empty($email))                                   $errors[] = "L'email est requis.";
+elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))  $errors[] = "L'email n'est pas valide.";
+if (empty($message))                                 $errors[] = 'Le message est requis.';
+if (strlen($message) > 5000)                         $errors[] = 'Le message est trop long (5000 caractères max).';
 
 if (!empty($errors)) {
     http_response_code(422);
@@ -39,13 +37,12 @@ $to      = 'ciampone@ik.me';
 $subject = $subject ?: 'Nouveau message depuis le portfolio';
 $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 
-$body  = "Nom    : {$name}\n";
-$body .= "Email  : {$email}\n";
+$body  = "Email  : {$email}\n";
 $body .= "---\n\n";
 $body .= $message;
 
 $headers  = "From: Portfolio <noreply@basik-studio.ch>\r\n";
-$headers .= "Reply-To: {$name} <{$email}>\r\n";
+$headers .= "Reply-To: <{$email}>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 

@@ -250,7 +250,7 @@ if (contactForm) {
 
     // Validation front légère
     let valid = true;
-    ['cf-name', 'cf-email', 'cf-message'].forEach(id => {
+    ['cf-email', 'cf-message'].forEach(id => {
       const el = document.getElementById(id);
       if (!el.value.trim()) { el.classList.add('error'); valid = false; }
       else el.classList.remove('error');
