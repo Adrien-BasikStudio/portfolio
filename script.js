@@ -16,7 +16,7 @@ function initCanvas() {
     scaleMobile: 1.0,
     color: 0x3d9eff,
     color2: 0xffffff,
-    backgroundColor: 0x1a1a1a,
+    backgroundColor: 0x0d0d0d,
     size: 3.5,
     spacing: 30.0,
     showLines: false
