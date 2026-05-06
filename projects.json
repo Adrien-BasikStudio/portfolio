@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "title": "Basik Talents : plateforme de gestion de stages",
+      "shortDesc": "Plateforme numérique pour la gestion et le placement de stagiaires, reliant stagiaires, formateurs et entreprises.",
+      "description": "Conception et développement de Basik Talents, une plateforme web qui centralise la gestion des stages. Trois rôles distincts : les stagiaires gèrent leur dossier et suivent leur progression, les administrateurs supervisent les processus, et les entreprises consultent les profils sélectionnés. Projet réalisé sous Basik Studio, pensé pour les établissements de formation et le tissu économique local.",
+      "tags": ["Webapp", "Plateforme", "UX/UI", "Formation"],
+      "image": "images/basik-talents.jpg",
+      "url": "https://talents.basik-studio.ch/"
+    },
+    {
+      "title": "Les Fourmis : organisation du foyer",
+      "shortDesc": "Webapp collaborative pour gérer les tâches et l'organisation d'un foyer, pensée comme un cerveau partagé.",
+      "description": "Conception et développement de Les Fourmis, une application web collaborative qui centralise les tâches, les informations et les décisions d'un foyer. Pensée pour les familles et les colocations, elle permet à chacun de contribuer à l'organisation commune. Projet personnel, du brief au déploiement.",
+      "tags": ["Webapp", "Collaboration", "UX/UI", "Création"],
+      "image": "images/les-fourmis.jpg",
+      "url": "https://gesthouse.vercel.app/tasks"
+    },
+    {
       "title": "TimbrApp : application de timbrage",
       "shortDesc": "Application mobile personnelle pour le suivi du temps de travail, avec récap hebdo, objectifs et export des heures.",
       "description": "Projet personnel développé sous Basik-Studio. TimbrApp est une application de timbrage mobile permettant de pointer les arrivées et départs, suivre les heures travaillées par semaine et par mois, consulter l'historique des sessions et exporter les données. Interface soignée avec statuts En service / En pause, progression visuelle par rapport aux objectifs fixés, et navigation par sections (Accueil, Récap, Objectifs, Profil).",
