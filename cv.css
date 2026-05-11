@@ -115,8 +115,8 @@
 .cv-traits span {
   padding: 5px 14px;
   border-radius: 100px;
-  background: rgba(136,136,136,0.18);
-  border: 1px solid rgba(136,136,136,0.35);
+  background: rgba(61,158,255,0.08);
+  border: 1px solid rgba(61,158,255,0.25);
   color: var(--accent);
   font-size: 12px;
   font-weight: 600;
