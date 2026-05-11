@@ -1,2 +1,6 @@
 DirectoryIndex index.html
 Options -Indexes
+
+# Annule la regle parent qui redirige tout vers /public/ (Laravel des autres sites du compte)
+RewriteEngine On
+RewriteRule .* - [L]
