@@ -240,6 +240,85 @@ body {
 .stat__num { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; color: var(--white); }
 .stat__label { font-size: 10px; color: var(--gray-3); margin-top: 3px; display: block; white-space: nowrap; }
 
+/* ===== FORMATION (avec radar chart) ===== */
+.formation { background: var(--black); }
+
+.formation__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.formation__text h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.formation__org {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px !important;
+}
+.formation__text p {
+  color: var(--gray-4);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.formation__text strong { color: var(--white); }
+.formation__text .btn { margin-top: 16px; }
+
+.formation__chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formation__chart svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+/* Radar chart styles */
+.radar-grid polygon {
+  fill: none;
+  stroke: rgba(15, 23, 42, 0.08);
+  stroke-width: 1;
+}
+.radar-axes line {
+  stroke: rgba(15, 23, 42, 0.1);
+  stroke-width: 1;
+}
+.radar-data {
+  fill: rgba(61, 158, 255, 0.18);
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.radar-points circle {
+  fill: var(--accent);
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+.radar-labels text {
+  fill: var(--gray-4);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .formation__grid { grid-template-columns: 1fr; gap: 48px; }
+  .formation__chart svg { max-width: 380px; }
+}
+@media (max-width: 540px) {
+  .radar-labels text { font-size: 11px; }
+}
+
 /* ===== PROJECTS (section sombre, spotlight sur les cards blanches) ===== */
 .projects {
   background: var(--dark-bg);
