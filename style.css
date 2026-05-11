@@ -342,7 +342,7 @@ body {
   padding: 3px 10px;
   border-radius: 100px;
 }
-.project-card__title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.project-card__title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
 .project-card__desc { font-size: 14px; color: var(--gray-4); line-height: 1.6; }
 
 /* ===== EXPERTISE ===== */
