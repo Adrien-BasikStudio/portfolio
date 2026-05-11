@@ -36,7 +36,8 @@ if (!empty($errors)) {
     exit;
 }
 
-$to         = 'ciampone@ik.me';
+$to         = 'hello@basik-studio.ch';
+$fromEmail  = 'hello@basik-studio.ch';
 $subjectRaw = $subject ?: 'Nouveau message depuis le portfolio';
 $subjectEnc = '=?UTF-8?B?' . base64_encode($subjectRaw) . '?=';
 
@@ -44,14 +45,15 @@ $body  = "Email  : {$email}\n";
 $body .= str_repeat('-', 30) . "\n\n";
 $body .= $message;
 
-$headers  = "From: Portfolio <noreply@basik-studio.ch>\r\n";
+$headers  = "From: Portfolio <{$fromEmail}>\r\n";
 $headers .= "Reply-To: <{$email}>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 ob_end_clean();
 
-$sent = mail($to, $subjectEnc, $body, $headers);
+// 5e param -f (envelope sender) recommande par Infomaniak
+$sent = mail($to, $subjectEnc, $body, $headers, "-f{$fromEmail}");
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Message envoyé ! Je vous réponds rapidement.']);
