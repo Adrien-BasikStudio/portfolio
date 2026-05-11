@@ -8,11 +8,11 @@
   /* Light palette (body + sections claires) */
   --black:       #ffffff;    /* fond principal (clair maintenant) */
   --white:       #0f172a;    /* texte principal (sombre maintenant) */
-  --gray-1:      #f7f8fa;    /* surface alternée */
-  --gray-2:      #e5e7eb;    /* bordures */
+  --gray-1:      #eef2f7;    /* surface alternée (bleu très léger pour bien marquer la coupure) */
+  --gray-2:      #d1dae5;    /* bordures (plus visibles) */
   --gray-3:      #6b7280;    /* texte soft */
   --gray-4:      #4b5563;    /* texte secondaire */
-  --gray-5:      #d1d5db;
+  --gray-5:      #c7d0dd;
   --accent:      #3d9eff;
   --accent-dark: #1a7de0;
 
@@ -40,7 +40,7 @@ body {
 
 /* ===== UTILITY ===== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 100px 0; }
+.section { padding: 100px 0; border-top: 1px solid var(--gray-2); }
 .label {
   display: inline-block;
   font-size: 11px;
