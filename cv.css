@@ -33,7 +33,7 @@
   font-size: 14px;
   color: var(--gray-4);
 }
-.cv-hero__meta a { color: var(--accent); text-decoration: none; }
+.cv-hero__meta a { color: var(--accent-text); text-decoration: none; }
 .cv-hero__meta a:hover { text-decoration: underline; }
 
 /* BODY */
@@ -65,8 +65,8 @@
   border-bottom: 1px solid var(--gray-2);
 }
 .cv-block__title--accent {
-  color: var(--accent);
-  border-color: rgba(61,158,255,0.2);
+  color: var(--accent-text);
+  border-color: rgba(24,95,171,0.25);
 }
 
 /* TAGS */
@@ -115,9 +115,9 @@
 .cv-traits span {
   padding: 5px 14px;
   border-radius: 100px;
-  background: rgba(61,158,255,0.08);
-  border: 1px solid rgba(61,158,255,0.25);
-  color: var(--accent);
+  background: rgba(24,95,171,0.08);
+  border: 1px solid rgba(24,95,171,0.3);
+  color: var(--accent-text);
   font-size: 12px;
   font-weight: 600;
 }
@@ -152,7 +152,7 @@
 .cv-entry__org {
   display: block;
   font-size: 12px;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 8px;
   font-weight: 500;
 }
@@ -187,5 +187,5 @@
 }
 @media (max-width: 600px) {
   .cv-entry { grid-template-columns: 1fr; gap: 4px; }
-  .cv-entry__period { font-size: 11px; color: var(--accent); }
+  .cv-entry__period { font-size: 11px; color: var(--accent-text); }
 }
