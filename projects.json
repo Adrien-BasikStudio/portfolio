@@ -14,7 +14,7 @@
       "description": "Conception et développement de Les Fourmis, une application web collaborative qui centralise les tâches, les informations et les décisions d'un foyer. Pensée pour les familles et les colocations, elle permet à chacun de contribuer à l'organisation commune. Projet personnel réalisé sous Basik Studio, du brief au déploiement.",
       "tags": ["Web", "UX/UI"],
       "image": "images/les-fourmis.jpg",
-      "url": "https://gesthouse.vercel.app/tasks"
+      "url": "https://www.lesfourmis.app/home"
     },
     {
       "title": "Gruyère Clicker : jeu navigateur",
