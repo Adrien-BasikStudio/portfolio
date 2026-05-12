@@ -20,7 +20,7 @@
       "title": "Gruyère Clicker : jeu navigateur",
       "shortDesc": "Clicker/idle game célébrant la culture fribourgeoise, avec système de prestige et arbre de compétences thématisé fondue.",
       "description": "Conception et développement de Gruyère Clicker, un jeu navigateur HTML5 publié sous Basik Studio sur itch.io. Le joueur clique sur une meule de Gruyère pour accumuler des Batz (ancienne monnaie locale), construit 11 bâtiments inspirés de Fribourg (vaches, fromageries, Cathédrale Saint-Nicolas, Dragon Gottéron) et débloque un arbre de prestige Fondue à quatre branches (Gruyère, Vacherin, Kirsch, Vin). Contenu éducatif intégré avec des faits historiques sur Fribourg, animations de bienvenue et sauvegarde chiffrée exportable.",
-      "tags": ["Web", "Design", "UX/UI"],
+      "tags": ["Jeu", "Web", "Design", "UX/UI"],
       "image": "images/gruyere-clicker.jpg",
       "url": "https://basik-studio.itch.io/gruyere-clicker"
     },
