@@ -4,137 +4,274 @@
       "title": "Basik Talents : plateforme de gestion de stages",
       "shortDesc": "Plateforme numérique pour la gestion et le placement de stagiaires, reliant stagiaires, formateurs et entreprises.",
       "description": "Conception et développement de Basik Talents, une plateforme web qui centralise la gestion des stages. Trois rôles distincts : les stagiaires gèrent leur dossier et suivent leur progression, les administrateurs supervisent les processus, et les entreprises consultent les profils sélectionnés. Projet réalisé sous Basik Studio, pensé pour les établissements de formation et le tissu économique local.",
-      "tags": ["Web", "UX/UI"],
+      "tags": [
+        "Web",
+        "UX/UI"
+      ],
       "image": "images/basik-talents.jpg",
-      "url": "https://talents.basik-studio.ch/"
+      "url": "https://talents.basik-studio.ch/",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Les Fourmis : organisation du foyer",
       "shortDesc": "Webapp collaborative pour gérer les tâches et l'organisation d'un foyer, pensée comme un cerveau partagé.",
       "description": "Conception et développement de Les Fourmis, une application web collaborative qui centralise les tâches, les informations et les décisions d'un foyer. Pensée pour les familles et les colocations, elle permet à chacun de contribuer à l'organisation commune. Projet personnel réalisé sous Basik Studio, du brief au déploiement.",
-      "tags": ["Web", "UX/UI"],
+      "tags": [
+        "Web",
+        "UX/UI"
+      ],
       "image": "images/les-fourmis.jpg",
-      "url": "https://www.lesfourmis.app/home"
+      "url": "https://www.lesfourmis.app/home",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Gruyère Clicker : jeu navigateur",
       "shortDesc": "Clicker/idle game célébrant la culture fribourgeoise, avec système de prestige et arbre de compétences thématisé fondue.",
       "description": "Conception et développement de Gruyère Clicker, un jeu navigateur HTML5 publié sous Basik Studio sur itch.io. Le joueur clique sur une meule de Gruyère pour accumuler des Batz (ancienne monnaie locale), construit 11 bâtiments inspirés de Fribourg (vaches, fromageries, Cathédrale Saint-Nicolas, Dragon Gottéron) et débloque un arbre de prestige Fondue à quatre branches (Gruyère, Vacherin, Kirsch, Vin). Contenu éducatif intégré avec des faits historiques sur Fribourg, animations de bienvenue et sauvegarde chiffrée exportable.",
-      "tags": ["Jeu", "Web", "Design", "UX/UI"],
+      "tags": [
+        "Jeu",
+        "Web",
+        "Design",
+        "UX/UI"
+      ],
       "image": "images/gruyere-clicker.jpg",
-      "url": "https://basik-studio.itch.io/gruyere-clicker"
+      "url": "https://basik-studio.itch.io/gruyere-clicker",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "TimbrApp : application de timbrage",
       "shortDesc": "Application mobile personnelle pour le suivi du temps de travail, avec récap hebdo, objectifs et export des heures.",
       "description": "Projet personnel développé sous Basik-Studio. TimbrApp est une application de timbrage mobile permettant de pointer les arrivées et départs, suivre les heures travaillées par semaine et par mois, consulter l'historique des sessions et exporter les données. Interface soignée avec statuts En service / En pause, progression visuelle par rapport aux objectifs fixés, et navigation par sections (Accueil, Récap, Objectifs, Profil).",
-      "tags": ["Web", "UX/UI", "Design"],
+      "tags": [
+        "Web",
+        "UX/UI",
+        "Design"
+      ],
       "image": "images/timbrapp.jpg",
-      "url": "https://timbrapp.basik-studio.ch/"
+      "url": "https://timbrapp.basik-studio.ch/",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Média Formation : suivi pédagogique des apprentis",
       "shortDesc": "Outil interne de suivi de formation pour les apprentis médiamaticiens, digital business et année préparatoire chez 3Sheds.",
       "description": "Conception et mise en place d'un outil de suivi pédagogique pour 3Sheds, permettant de visualiser la progression des apprentis (médiamaticiens, digital business developers, année préparatoire) à travers des graphiques radar par compétence. L'outil centralise les projets évalués, les points cumulés et les profils individuels pour faciliter le suivi formateur et les entretiens de progression.",
-      "tags": ["Web", "UX/UI", "Formation"],
+      "tags": [
+        "Web",
+        "UX/UI",
+        "Formation"
+      ],
       "image": "images/media-formation.jpg",
-      "url": ""
+      "url": "",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Label Fait Maison : vidéo & direction artistique",
       "shortDesc": "Tournage et montage vidéo pour le Label Fait Maison à Fribourg, en tant que formateur chez 3Sheds.",
       "description": "Direction artistique, tournage et montage vidéo pour le Label Fait Maison, un label fribourgeois qui valorise les produits artisanaux locaux. Projet réalisé chez 3Sheds en tant que formateur, en encadrant les apprentis sur l'ensemble de la production vidéo.",
-      "tags": ["Vidéo", "Direction artistique", "Formation"],
+      "tags": [
+        "Vidéo",
+        "Direction artistique",
+        "Formation"
+      ],
       "image": "images/label-fait-maison.jpg",
-      "url": "https://www.instagram.com/reel/DHbj3dmon2u/"
+      "url": "https://www.instagram.com/reel/DHbj3dmon2u/",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Atout Poil : identité visuelle & charte graphique",
       "shortDesc": "Charte graphique, carte de visite, rappel de rendez-vous et habillage vitrine pour un salon de toilettage à Fribourg.",
       "description": "Projet réalisé en tant que formateur chez 3Sheds. Création complète de l'identité visuelle d'Atout Poil, salon de toilettage à Fribourg : logo, charte graphique, carte de visite recto/verso, carte de rappel de rendez-vous et habillage des vitrines du commerce. Un projet pédagogique mené avec des apprentis, du brief au résultat final appliqué en boutique.",
-      "tags": ["Design", "Formation"],
+      "tags": [
+        "Design",
+        "Formation"
+      ],
       "image": "images/atout-poil-carte.jpg",
-      "url": ""
+      "url": "",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Site Basik Studio",
       "shortDesc": "Conception et développement du site vitrine de ma propre startup créative.",
       "description": "Design et développement complet du site web de Basik Studio, le studio créatif que j'ai fondé. Identité visuelle, UX/UI et intégration front-end réalisés de A à Z.",
-      "tags": ["Web", "Design"],
+      "tags": [
+        "Web",
+        "Design"
+      ],
       "image": "images/basik-studio-screenshot.jpg",
-      "url": "https://basik-studio.ch"
+      "url": "https://basik-studio.ch",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "ISM Lausanne : site web & photos",
       "shortDesc": "Refonte du site de l'Institut Sainte-Marcelline : design, développement, photographie et analyse UX/UI.",
       "description": "Projet complet pour l'Institut Sainte-Marcelline de Lausanne : refonte du site web (WordPress), réalisation des photos institutionnelles et analyse UX/UI approfondie pour améliorer l'expérience utilisateur et la lisibilité de l'offre de formations.",
-      "tags": ["Web", "UX/UI", "Photographie"],
+      "tags": [
+        "Web",
+        "UX/UI",
+        "Photographie"
+      ],
       "image": "images/ism-lausanne-screenshot.jpg",
-      "url": "https://ismlausanne.org"
+      "url": "https://ismlausanne.org",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Comptoir Nakama : e-commerce",
       "shortDesc": "Mise en place du site e-commerce, création des contenus et système de vente en ligne pour une boutique de cartes Pokémon.",
       "description": "Création complète du site e-commerce du Comptoir Nakama, une boutique spécialisée dans les cartes Pokémon. Mise en place de la boutique en ligne, création des contenus (textes, visuels), intégration du système de paiement et de gestion des commandes.",
-      "tags": ["Web", "E-commerce"],
+      "tags": [
+        "Web",
+        "E-commerce"
+      ],
       "image": "images/nakama-screenshot.jpg",
-      "url": "https://comptoir-nakama.ch"
+      "url": "https://comptoir-nakama.ch",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Lose Control Neverending Rhizome",
       "shortDesc": "Mise en place du site, développement du Rhizome numérique interactif et création du logo.",
       "description": "Conception et développement du site de LCNR (Lose Control Neverending Rhizome), un collectif de musiciens né pendant la pandémie. Création du logo, mise en place du site WordPress et développement de la fonctionnalité Rhizome numérique, une carte interactive des connexions entre artistes.",
-      "tags": ["Web", "Design"],
+      "tags": [
+        "Web",
+        "Design"
+      ],
       "image": "images/rhizome-screenshot.jpg",
-      "url": "https://neverendingrhizome.ch"
+      "url": "https://neverendingrhizome.ch",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Notes de fève : vidéo & photos",
       "shortDesc": "Direction artistique et formation d'apprentis pour la production vidéo et photos de Notes de fève.",
       "description": "En tant que directeur artistique et formateur chez 3Sheds, j'ai encadré mes apprentis dans la réalisation d'une vidéo promotionnelle et de photos pour Notes de fève, une chocolaterie bean-to-bar. Cadrage, direction de tournage, montage et retouche photo.",
-      "tags": ["Vidéo", "Photographie", "Direction artistique", "Formation"],
+      "tags": [
+        "Vidéo",
+        "Photographie",
+        "Direction artistique",
+        "Formation"
+      ],
       "image": "https://img.youtube.com/vi/5t5nSYy8-Mc/maxresdefault.jpg",
-      "url": "https://youtu.be/5t5nSYy8-Mc"
+      "url": "https://youtu.be/5t5nSYy8-Mc",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Snack-Chat : site, vidéo & photos",
       "shortDesc": "Direction artistique et formation : site web, vidéo promotionnelle et photographie pour le Snack-Chat.",
       "description": "Projet complet pour le Snack-Chat, un snack-bar fribourgeois. En tant que directeur artistique et formateur chez 3Sheds, j'ai encadré mes apprentis sur l'ensemble de la production : site web, vidéo promotionnelle et photos. Coordination de la production, direction de tournage et supervision du développement web.",
-      "tags": ["Web", "Vidéo", "Photographie", "Direction artistique", "Formation"],
+      "tags": [
+        "Web",
+        "Vidéo",
+        "Photographie",
+        "Direction artistique",
+        "Formation"
+      ],
       "image": "images/snack-chat-screenshot.jpg",
       "url": "https://snack-chat.ch",
       "links": [
-        { "label": "Site web", "url": "https://snack-chat.ch" },
-        { "label": "Vidéo", "url": "https://youtu.be/eJJU3L5uQNo" }
-      ]
+        {
+          "label": "Site web",
+          "url": "https://snack-chat.ch"
+        },
+        {
+          "label": "Vidéo",
+          "url": "https://youtu.be/eJJU3L5uQNo"
+        }
+      ],
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Churros n Co : photo & vidéo",
       "shortDesc": "Direction artistique, photographie et deux productions vidéo pour la marque Churros n Co.",
       "description": "Direction artistique complète pour Churros n Co : production photo et deux vidéos promotionnelles. Cadrage, direction de tournage, choix des angles et de la lumière pour mettre en valeur la marque et ses produits.",
-      "tags": ["Vidéo", "Photographie", "Direction artistique", "Formation"],
+      "tags": [
+        "Vidéo",
+        "Photographie",
+        "Direction artistique",
+        "Formation"
+      ],
       "image": "https://img.youtube.com/vi/M85rMEmVnO8/maxresdefault.jpg",
       "url": "https://youtu.be/M85rMEmVnO8",
       "links": [
-        { "label": "Vidéo 1", "url": "https://youtu.be/M85rMEmVnO8" },
-        { "label": "Vidéo 2", "url": "https://youtu.be/i9gxiJr88yU" }
-      ]
+        {
+          "label": "Vidéo 1",
+          "url": "https://youtu.be/M85rMEmVnO8"
+        },
+        {
+          "label": "Vidéo 2",
+          "url": "https://youtu.be/i9gxiJr88yU"
+        }
+      ],
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "HETS Fribourg : vidéo sur l'âgisme",
       "shortDesc": "Direction artistique d'une vidéo institutionnelle pour la Haute École de Travail Social de Fribourg.",
       "description": "Direction artistique de la vidéo institutionnelle de la HETS Fribourg (HES-SO) avec le professeur Christian Maggiori sur le thème de l'âgisme. Coordination du tournage, direction des intervenants, montage et post-production pour un contenu académique professionnel.",
-      "tags": ["Vidéo", "Direction artistique", "Formation"],
+      "tags": [
+        "Vidéo",
+        "Direction artistique",
+        "Formation"
+      ],
       "image": "images/hets-fribourg-screenshot.jpg",
-      "url": "https://tube.switch.ch/videos/XZeTCBMaEd"
+      "url": "https://tube.switch.ch/videos/XZeTCBMaEd",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     },
     {
       "title": "Photographie sur Instagram",
       "shortDesc": "Portfolio photo personnel : portraits, paysages et reportages. 129 publications, 1760 followers.",
       "description": "Ma pratique photographique personnelle, partagée sur Instagram. Portraits en lumière naturelle, paysages suisses, reportages et collaborations créatives. Shooting avec Sony Alpha. Disponible pour des projets photo sur demande.",
-      "tags": ["Photographie"],
+      "tags": [
+        "Photographie"
+      ],
       "image": "images/instagram-adrien-ciampone.jpg",
-      "url": "https://www.instagram.com/adrien.ciampone/"
+      "url": "https://www.instagram.com/adrien.ciampone/",
+      "year": "",
+      "role": "",
+      "stack": [],
+      "gallery": []
     }
   ]
 }

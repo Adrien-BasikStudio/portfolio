@@ -103,7 +103,16 @@ function buildFilters(projects) {
   });
 }
 
+function buildMeta(p) {
+  const parts = [];
+  if (p.year)  parts.push(p.year);
+  if (p.role)  parts.push(p.role);
+  if (p.stack && p.stack.length) parts.push(p.stack.join(', '));
+  return parts.length ? parts.join(' · ') : '';
+}
+
 function cardHTML(p, i) {
+  const meta = buildMeta(p);
   return `
     <article class="project-card" data-index="${i}" role="button" tabindex="0" aria-label="Voir le projet ${p.title}">
       <div class="project-card__media">
@@ -117,6 +126,7 @@ function cardHTML(p, i) {
           ${(p.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
         </div>
         <h3 class="project-card__title">${p.title}</h3>
+        ${meta ? `<div class="project-card__meta">${meta}</div>` : ''}
         <p class="project-card__desc">${p.shortDesc || ''}</p>
       </div>
     </article>`;
@@ -190,7 +200,7 @@ const modalClose = document.getElementById('modal-close');
 const modalOverlay = document.getElementById('modal-overlay');
 
 function openModal(project) {
-  // Génère les liens : priorité au tableau "links", sinon l'url simple
+  // Genère les liens : priorité au tableau "links", sinon l'url simple
   let linksHtml = '';
   if (project.links && project.links.length) {
     linksHtml = `<div class="modal__links">
@@ -200,17 +210,54 @@ function openModal(project) {
     linksHtml = `<a href="${project.url}" target="_blank" rel="noopener" class="modal__link">Voir le projet →</a>`;
   }
 
+  // Galerie : utilise project.gallery si présent et non vide, sinon fallback sur project.image
+  const galleryImages = (project.gallery && project.gallery.length)
+    ? project.gallery
+    : (project.image ? [project.image] : []);
+
+  let galleryHtml = '';
+  if (galleryImages.length === 1) {
+    galleryHtml = `<img src="${galleryImages[0]}" alt="${project.title}" />`;
+  } else if (galleryImages.length > 1) {
+    galleryHtml = `
+      <div class="modal__gallery">
+        <img class="modal__main-img" id="modal-main-img" src="${galleryImages[0]}" alt="${project.title}" />
+        <div class="modal__thumbs">
+          ${galleryImages.map((g, i) => `
+            <button type="button" class="modal__thumb${i === 0 ? ' is-active' : ''}" data-src="${g}" aria-label="Image ${i+1} sur ${galleryImages.length}">
+              <img src="${g}" alt="" loading="lazy" />
+            </button>
+          `).join('')}
+        </div>
+      </div>`;
+  }
+
+  const meta = buildMeta(project);
+
   modalBody.innerHTML = `
-    ${project.image ? `<img src="${project.image}" alt="${project.title}" />` : ''}
+    ${galleryHtml}
     <div class="modal__info">
       <div class="modal__tags">
         ${(project.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
       </div>
       <h3>${project.title}</h3>
+      ${meta ? `<div class="modal__meta">${meta}</div>` : ''}
       <p>${project.description || project.shortDesc || ''}</p>
       ${linksHtml}
     </div>
   `;
+
+  // Active les thumbnails (swap de l'image principale)
+  const thumbs = modalBody.querySelectorAll('.modal__thumb');
+  const mainImg = modalBody.querySelector('#modal-main-img');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      thumbs.forEach(t => t.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+      mainImg.src = thumb.dataset.src;
+    });
+  });
+
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
