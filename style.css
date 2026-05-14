@@ -35,6 +35,64 @@
   --trans:   0.25s ease;
 }
 
+/* ===== DARK MODE (data-theme="dark" sur <html>) ===== */
+:root[data-theme="dark"] {
+  --black:         #0d0d0d;
+  --white:         #f0f0f0;
+  --gray-1:        #161616;
+  --gray-2:        #2a2a2a;
+  --gray-3:        #b8b8b8;
+  --gray-4:        #b8b8b8;
+  --gray-5:        #444a55;
+  --accent-text:   #6fb6ff;
+  --color-success: #4ade80;
+  --color-error:   #f87171;
+}
+
+/* Surfaces hardcodees en #ffffff repassent en sombre */
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .modal__content,
+[data-theme="dark"] .tool,
+[data-theme="dark"] .skeleton-card {
+  background: #1c1c1c;
+}
+[data-theme="dark"] .modal__close { background: rgba(28,28,28,0.95); }
+[data-theme="dark"] .modal__close:hover { background: #2a2a2a; }
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea { background: #1c1c1c; }
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder { color: #707888; }
+[data-theme="dark"] .stat-card { background: rgba(28,28,28,0.92); }
+
+/* Boutons primary : on garde le bleu deep (AAA white-on-blue garanti) */
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--nav { background: #1e5fa8; }
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--nav:hover { background: #2674c5; }
+
+/* Skeleton shimmer adapte au dark */
+[data-theme="dark"] .skeleton-img {
+  background: linear-gradient(90deg, #1c1c1c 25%, #2a2a2a 50%, #1c1c1c 75%);
+  background-size: 200% 100%;
+}
+[data-theme="dark"] .skeleton-line {
+  background: linear-gradient(90deg, #1c1c1c 25%, #262626 50%, #1c1c1c 75%);
+  background-size: 200% 100%;
+}
+
+/* Petits ajustements de teinte */
+[data-theme="dark"] .reco__mark { color: rgba(111,182,255,0.10); }
+[data-theme="dark"] .modal__link { background: rgba(111,182,255,0.10); border-color: rgba(111,182,255,0.30); }
+[data-theme="dark"] .project-card__tag { background: rgba(111,182,255,0.12); }
+[data-theme="dark"] .recos__source a:hover { color: #9bc7ff; }
+
+/* Transitions douces lors du swap */
+body, .section, .nav, .footer, .project-card, .reco, .tool, .process-step,
+.modal__content, .contact-form input, .contact-form textarea, .skeleton-card,
+.expertise-item, .stat-card {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
 html { scroll-behavior: smooth; }
 
 /* Scroll-margin pour que les sections ne soient pas cachees sous la nav fixe */
@@ -1047,6 +1105,28 @@ body {
   transition: color var(--trans);
 }
 .footer__links a:hover { color: var(--dark-text); }
+
+/* Theme toggle (sur fond sombre de la nav) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: var(--dark-text);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--trans), border-color var(--trans), color var(--trans);
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.10); border-color: var(--accent-bright); color: var(--accent-bright); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle__sun { display: none; }
+[data-theme="dark"] .theme-toggle__moon { display: none; }
+[data-theme="dark"] .theme-toggle__sun { display: inline-block; }
 
 /* LinkedIn nav icon (sur fond sombre) */
 .nav__linkedin {
