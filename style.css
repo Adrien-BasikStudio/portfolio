@@ -473,6 +473,7 @@ body {
   border-top-color: var(--dark-border);
 }
 .projects .section__header h2 { color: var(--dark-text); }
+.projects .label { color: var(--accent-bright); }
 .projects__filters {
   display: flex;
   gap: 10px;
@@ -856,8 +857,14 @@ body {
   .process__grid { grid-template-columns: 1fr; }
 }
 
-/* ===== STACK / OUTILS ===== */
-.stack { background: var(--gray-1); }
+/* ===== STACK / OUTILS (section sombre, spotlight sur les logos blancs) ===== */
+.stack {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  border-top-color: var(--dark-border);
+}
+.stack .section__header h2 { color: var(--dark-text); }
+.stack .label { color: var(--accent-bright); }
 
 .stack__grid {
   display: grid;
