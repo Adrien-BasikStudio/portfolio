@@ -683,6 +683,64 @@ body {
 }
 .expertise__footer p { font-size: 14px; color: var(--gray-3); }
 
+/* ===== STACK / OUTILS ===== */
+.stack { background: var(--gray-1); }
+
+.stack__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.tool {
+  background: #ffffff;
+  border: 1px solid var(--gray-2);
+  border-radius: 10px;
+  padding: 18px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  transition: transform var(--trans), border-color var(--trans), box-shadow var(--trans);
+}
+.tool:hover {
+  transform: translateY(-3px);
+  border-color: rgba(61,158,255,0.4);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.tool img {
+  width: 36px;
+  height: 36px;
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.tool:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.tool span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-4);
+  line-height: 1.3;
+}
+.tool:hover span { color: var(--white); }
+
+@media (max-width: 900px) {
+  .stack__grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 540px) {
+  .stack__grid { grid-template-columns: repeat(3, 1fr); }
+  .tool img { width: 30px; height: 30px; }
+  .tool span { font-size: 11px; }
+}
+
 /* ===== CONTACT ===== */
 .contact { background: var(--black); }
 
