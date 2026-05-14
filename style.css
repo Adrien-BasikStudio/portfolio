@@ -683,6 +683,65 @@ body {
 }
 .expertise__footer p { font-size: 14px; color: var(--gray-3); }
 
+/* ===== PROCESS ===== */
+.process { background: var(--black); }
+
+.process__intro {
+  max-width: 620px;
+  color: var(--gray-4);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.process-step {
+  background: var(--gray-1);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius);
+  padding: 28px 26px 26px;
+  transition: transform var(--trans), border-color var(--trans);
+  position: relative;
+}
+.process-step:hover {
+  transform: translateY(-3px);
+  border-color: rgba(61,158,255,0.35);
+}
+
+.process-step__num {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+  margin-bottom: 12px;
+}
+
+.process-step h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  font-size: 14px;
+  color: var(--gray-4);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .process__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .process__grid { grid-template-columns: 1fr; }
+}
+
 /* ===== STACK / OUTILS ===== */
 .stack { background: var(--gray-1); }
 
