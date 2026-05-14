@@ -579,7 +579,7 @@ body {
 .project-card__desc { font-size: 14px; color: var(--gray-4); line-height: 1.6; }
 
 /* ===== GALLERY PHOTO (masonry via CSS columns) ===== */
-.gallery-section { background: var(--black); }
+.gallery-section { background: var(--gray-1); }
 
 .gallery__intro {
   max-width: 540px;
@@ -600,7 +600,7 @@ body {
   margin-bottom: 14px;
   border-radius: 8px;
   overflow: hidden;
-  background: var(--gray-1);
+  background: var(--black);
   cursor: pointer;
   position: relative;
 }
@@ -927,7 +927,7 @@ body {
 
 .now__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
   margin-bottom: 28px;
 }
@@ -972,16 +972,12 @@ body {
   letter-spacing: 0.02em;
 }
 
-@media (max-width: 900px) {
-  .now__grid { grid-template-columns: repeat(2, 1fr); }
-}
 @media (max-width: 540px) {
-  .now__grid { grid-template-columns: 1fr; }
   .now__updated { text-align: left; }
 }
 
 /* ===== CONTACT ===== */
-.contact { background: var(--black); }
+.contact { background: var(--gray-1); }
 
 .contact__split {
   display: grid;
@@ -1027,7 +1023,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: var(--gray-1);
+  background: var(--black);
   border: 1px solid var(--gray-2);
   font-size: 13px;
   font-weight: 700;
