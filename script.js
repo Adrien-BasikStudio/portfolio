@@ -291,6 +291,55 @@ if (contactForm) {
   });
 }
 
+// ===== Scroll progress bar =====
+const scrollProgress = document.getElementById('scroll-progress');
+if (scrollProgress) {
+  const updateProgress = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+}
+
+// ===== Active section dans la nav =====
+const sectionNavLinks = document.querySelectorAll('.nav__links a[href^="#"]');
+const navSections = document.querySelectorAll('section[id]');
+
+if (sectionNavLinks.length && navSections.length) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        sectionNavLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('is-current', href === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  navSections.forEach(s => sectionObserver.observe(s));
+}
+
+// ===== Fade-in au scroll =====
+const fadeTargets = document.querySelectorAll('.section');
+if (fadeTargets.length) {
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -80px 0px' });
+
+  fadeTargets.forEach(el => fadeObserver.observe(el));
+}
+
 // ===== Init =====
 loadProjects();
 initCanvas();
