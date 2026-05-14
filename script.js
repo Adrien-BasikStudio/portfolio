@@ -340,6 +340,42 @@ if (fadeTargets.length) {
   fadeTargets.forEach(el => fadeObserver.observe(el));
 }
 
+// ===== Galerie photo (chargement depuis photos.json) =====
+async function loadPhotos() {
+  const grid = document.getElementById('gallery-grid');
+  if (!grid) return;
+
+  try {
+    const res = await fetch('photos.json');
+    const data = await res.json();
+    const photos = data.photos || [];
+
+    if (!photos.length) {
+      document.getElementById('gallery').style.display = 'none';
+      return;
+    }
+
+    grid.innerHTML = photos.map(p => `
+      <figure class="gallery__item">
+        <img src="${p.src}" alt="${p.alt || ''}" loading="lazy"
+             onerror="this.closest('.gallery__item').style.display='none'" />
+      </figure>
+    `).join('');
+
+    // Si toutes les images ont fail, on cache la section au prochain tick
+    setTimeout(() => {
+      const stillVisible = grid.querySelectorAll('.gallery__item:not([style*="display: none"])');
+      if (!stillVisible.length) {
+        document.getElementById('gallery').style.display = 'none';
+      }
+    }, 1200);
+
+  } catch {
+    document.getElementById('gallery').style.display = 'none';
+  }
+}
+
 // ===== Init =====
 loadProjects();
+loadPhotos();
 initCanvas();
