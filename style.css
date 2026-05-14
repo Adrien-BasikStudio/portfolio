@@ -857,9 +857,9 @@ body {
   .nav__links a {
     font-size: 24px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--dark-text);
   }
-  .nav__links a:hover { color: var(--accent); }
+  .nav__links a:hover { color: var(--accent-bright); }
   .nav__links .btn--nav {
     font-size: 17px;
     padding: 13px 36px;
