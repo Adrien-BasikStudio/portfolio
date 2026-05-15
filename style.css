@@ -718,17 +718,17 @@ body {
 }
 .expertise .label { color: var(--accent-bright); }
 .expertise .section__header h2 { color: var(--dark-text); }
-.expertise__intro { color: var(--dark-muted) !important; }
-.expertise-item { border-top-color: rgba(255,255,255,0.08); }
-.expertise-item:last-child { border-bottom-color: rgba(255,255,255,0.08); }
-.expertise-item__num { color: var(--dark-muted); }
-.expertise-item:hover .expertise-item__num { color: var(--accent-bright); }
-.expertise-item__body h3 { color: var(--dark-text); }
-.expertise-item:hover .expertise-item__body h3 { color: var(--accent-bright); }
-.expertise-item__body p { color: var(--dark-muted); }
-.expertise-item__tags span { color: var(--dark-muted); opacity: 0.7; }
-.expertise__footer { border-top-color: rgba(255,255,255,0.08); }
-.expertise__footer p { color: var(--dark-muted); }
+.expertise .expertise__intro { color: var(--dark-muted); }
+.expertise .expertise-item { border-top-color: rgba(255,255,255,0.08); }
+.expertise .expertise-item:last-child { border-bottom-color: rgba(255,255,255,0.08); }
+.expertise .expertise-item__num { color: var(--dark-muted); }
+.expertise .expertise-item:hover .expertise-item__num { color: var(--accent-bright); }
+.expertise .expertise-item__body h3 { color: var(--dark-text); }
+.expertise .expertise-item:hover .expertise-item__body h3 { color: var(--accent-bright); }
+.expertise .expertise-item__body p { color: var(--dark-muted); }
+.expertise .expertise-item__tags span { color: var(--dark-muted); opacity: 0.7; }
+.expertise .expertise__footer { border-top-color: rgba(255,255,255,0.08); }
+.expertise .expertise__footer p { color: var(--dark-muted); }
 .expertise .btn--ghost { color: var(--dark-text); border-color: rgba(255,255,255,0.18); }
 .expertise .btn--ghost:hover { border-color: var(--dark-text); }
 
@@ -953,9 +953,17 @@ body {
 
 .now__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .now__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .now__grid { grid-template-columns: 1fr; }
 }
 
 .now-card {
