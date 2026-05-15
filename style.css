@@ -63,6 +63,8 @@
 [data-theme="dark"] .contact-form input::placeholder,
 [data-theme="dark"] .contact-form textarea::placeholder { color: #707888; }
 [data-theme="dark"] .stat-card { background: rgba(28,28,28,0.92); }
+[data-theme="dark"] .tool img { filter: grayscale(100%) invert(1); opacity: 0.6; }
+[data-theme="dark"] .tool:hover img { filter: none; opacity: 1; }
 
 /* Boutons primary : on garde le bleu deep (AAA white-on-blue garanti) */
 [data-theme="dark"] .btn--primary,
