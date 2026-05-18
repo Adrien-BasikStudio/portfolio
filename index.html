@@ -512,6 +512,16 @@
   </footer>
 
   <!-- MODAL PROJET -->
+  <!-- PHOTO LIGHTBOX -->
+  <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+    <div class="photo-lightbox__overlay" id="photo-lightbox-overlay"></div>
+    <button class="photo-lightbox__close" id="photo-lightbox-close" aria-label="Fermer">✕</button>
+    <button class="photo-lightbox__nav photo-lightbox__prev" id="photo-lightbox-prev" aria-label="Photo précédente">‹</button>
+    <img id="photo-lightbox-img" src="" alt="" class="photo-lightbox__img" />
+    <button class="photo-lightbox__nav photo-lightbox__next" id="photo-lightbox-next" aria-label="Photo suivante">›</button>
+    <span class="photo-lightbox__counter" id="photo-lightbox-counter"></span>
+  </div>
+
   <div class="modal" id="project-modal" role="dialog" aria-modal="true">
     <div class="modal__overlay" id="modal-overlay"></div>
     <div class="modal__content">
