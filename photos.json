@@ -2,6 +2,13 @@
   "photos": [
     { "src": "images/photos/photo-01.jpg", "alt": "Photographie d'Adrien Ciampone" },
     { "src": "images/photos/photo-02.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-03.jpg", "alt": "Photographie d'Adrien Ciampone" }
+    { "src": "images/photos/photo-03.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-04.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-05.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-06.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-07.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-08.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-09.jpg", "alt": "Photographie d'Adrien Ciampone" },
+    { "src": "images/photos/photo-10.jpg", "alt": "Photographie d'Adrien Ciampone" }
   ]
 }
