@@ -388,7 +388,7 @@ if (fadeTargets.length) {
 }
 
 // ===== Galerie photo =====
-const GALLERY_PAGE = 4;
+const GALLERY_PAGE = 3;
 let allPhotos       = [];
 let visiblePhotoCount = 0;
 let currentPhotoIndex = 0;
@@ -400,7 +400,13 @@ async function loadPhotos() {
   try {
     const res  = await fetch('photos.json');
     const data = await res.json();
-    allPhotos  = data.photos || [];
+    // Mélange aléatoire (Fisher-Yates)
+    const raw = data.photos || [];
+    for (let i = raw.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [raw[i], raw[j]] = [raw[j], raw[i]];
+    }
+    allPhotos = raw;
 
     if (!allPhotos.length) {
       document.getElementById('gallery').style.display = 'none';
