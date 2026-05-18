@@ -30,7 +30,7 @@ RewriteRule .* - [L]
   # - connect : site uniquement (fetch vers projects.json, photos.json, contact.php)
   Header always set Content-Security-Policy "\
     default-src 'self';\
-    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;\
+    script-src 'self' 'sha256-wbwocCbN7FUWvErV+/erZ6onzjkYs5SQw7guJ8Fa3Ls=' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;\
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;\
     font-src 'self' https://fonts.gstatic.com;\
     img-src 'self' data: https://cdn.simpleicons.org https://cdn.jsdelivr.net https://unpkg.com;\
