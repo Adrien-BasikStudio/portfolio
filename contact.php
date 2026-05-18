@@ -6,6 +6,26 @@ ini_set('display_errors', 0);
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
+// ===== RATE LIMITING : 3 envois max par tranche de 10 minutes par IP =====
+$ip       = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rl_file  = sys_get_temp_dir() . '/cf_rl_' . md5($ip) . '.json';
+$rl_limit = 3;
+$rl_window = 600; // secondes (10 min)
+
+$rl_data = ['count' => 0, 'since' => time()];
+if (file_exists($rl_file)) {
+    $raw = json_decode(file_get_contents($rl_file), true);
+    if ($raw && (time() - $raw['since']) < $rl_window) {
+        $rl_data = $raw;
+    }
+}
+if ($rl_data['count'] >= $rl_limit) {
+    ob_end_clean();
+    http_response_code(429);
+    echo json_encode(['success' => false, 'message' => 'Trop de messages envoyés. Réessayez dans quelques minutes.']);
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     ob_end_clean();
     http_response_code(405);
@@ -51,6 +71,10 @@ $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 ob_end_clean();
+
+// Incrémente le compteur rate-limit
+$rl_data['count']++;
+@file_put_contents($rl_file, json_encode($rl_data));
 
 // 5e param -f (envelope sender) recommande par Infomaniak
 $sent = mail($to, $subjectEnc, $body, $headers, "-f{$fromEmail}");
