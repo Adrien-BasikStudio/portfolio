@@ -429,8 +429,12 @@ function appendPhotos(photos) {
     fig.setAttribute('role', 'button');
     fig.setAttribute('tabindex', '0');
     fig.setAttribute('aria-label', 'Agrandir');
-    fig.innerHTML = `<img src="${p.thumb || p.src}" alt="${p.alt || ''}" loading="lazy"
-      onerror="this.closest('.gallery__item').style.display='none'" />`;
+    const img = document.createElement('img');
+    img.src     = p.thumb || p.src;
+    img.alt     = p.alt || '';
+    img.loading = 'lazy';
+    img.addEventListener('error', () => { fig.style.display = 'none'; });
+    fig.appendChild(img);
     const idx = allPhotos.indexOf(p);
     fig.addEventListener('click',   () => openLightbox(idx));
     fig.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(idx); });
@@ -520,6 +524,14 @@ themeToggle?.addEventListener('click', () => {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
   }
+});
+
+// ===== Fallback logos Stack (remplace les onerror inline, incompatibles CSP) =====
+document.querySelectorAll('.tool img').forEach(img => {
+  const hide = () => { img.closest('.tool').style.display = 'none'; };
+  img.addEventListener('error', hide);
+  // Image déjà échouée avant l'attachement du listener
+  if (img.complete && !img.naturalWidth) hide();
 });
 
 // ===== Init =====
