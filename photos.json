@@ -1,23 +1,99 @@
 {
   "photos": [
-    { "src": "images/photos/photo-01.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-02.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-03.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-04.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-05.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-06.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-07.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-08.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-09.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-10.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-11.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-12.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-13.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-14.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-15.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-16.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-17.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-18.jpg", "alt": "Photographie d'Adrien Ciampone" },
-    { "src": "images/photos/photo-19.jpg", "alt": "Photographie d'Adrien Ciampone" }
+    {
+      "thumb": "images/photos/thumbs/photo-01.jpg",
+      "src": "images/photos/full/photo-01.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-02.jpg",
+      "src": "images/photos/full/photo-02.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-03.jpg",
+      "src": "images/photos/full/photo-03.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-04.jpg",
+      "src": "images/photos/full/photo-04.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-05.jpg",
+      "src": "images/photos/full/photo-05.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-06.jpg",
+      "src": "images/photos/full/photo-06.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-07.jpg",
+      "src": "images/photos/full/photo-07.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-08.jpg",
+      "src": "images/photos/full/photo-08.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-09.jpg",
+      "src": "images/photos/full/photo-09.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-10.jpg",
+      "src": "images/photos/full/photo-10.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-11.jpg",
+      "src": "images/photos/full/photo-11.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-12.jpg",
+      "src": "images/photos/full/photo-12.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-13.jpg",
+      "src": "images/photos/full/photo-13.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-14.jpg",
+      "src": "images/photos/full/photo-14.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-15.jpg",
+      "src": "images/photos/full/photo-15.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-16.jpg",
+      "src": "images/photos/full/photo-16.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-17.jpg",
+      "src": "images/photos/full/photo-17.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-18.jpg",
+      "src": "images/photos/full/photo-18.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    },
+    {
+      "thumb": "images/photos/thumbs/photo-19.jpg",
+      "src": "images/photos/full/photo-19.jpg",
+      "alt": "Photographie d'Adrien Ciampone"
+    }
   ]
 }

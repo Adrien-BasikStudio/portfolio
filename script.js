@@ -429,7 +429,7 @@ function appendPhotos(photos) {
     fig.setAttribute('role', 'button');
     fig.setAttribute('tabindex', '0');
     fig.setAttribute('aria-label', 'Agrandir');
-    fig.innerHTML = `<img src="${p.src}" alt="${p.alt || ''}" loading="lazy"
+    fig.innerHTML = `<img src="${p.thumb || p.src}" alt="${p.alt || ''}" loading="lazy"
       onerror="this.closest('.gallery__item').style.display='none'" />`;
     const idx = allPhotos.indexOf(p);
     fig.addEventListener('click',   () => openLightbox(idx));
@@ -469,11 +469,22 @@ const lightboxCounter = document.getElementById('photo-lightbox-counter');
 function openLightbox(index) {
   currentPhotoIndex = index;
   const p = allPhotos[index];
-  lightboxImg.src = p.src;
+  // Affiche d'abord le thumb pendant le chargement de la full
+  lightboxImg.src = p.thumb || p.src;
   lightboxImg.alt = p.alt || '';
+  lightboxImg.style.filter = 'blur(6px)';
   lightboxCounter.textContent = `${index + 1} / ${allPhotos.length}`;
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Charge la full en arrière-plan
+  const full = new Image();
+  full.onload = () => {
+    if (currentPhotoIndex === index) {
+      lightboxImg.src = full.src;
+      lightboxImg.style.filter = '';
+    }
+  };
+  full.src = p.src;
 }
 
 function closeLightbox() {
