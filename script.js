@@ -176,20 +176,25 @@ function showMore() {
 }
 
 function updateMoreBtn(projects) {
-  let btn = document.getElementById('projects-more');
-  if (!btn) {
-    btn = document.createElement('div');
-    btn.id = 'projects-more';
-    btn.className = 'projects__more';
-    grid.parentElement.appendChild(btn);
+  let container = document.getElementById('projects-more');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'projects-more';
+    container.className = 'projects__more';
+    grid.parentElement.appendChild(container);
   }
 
   if (visibleCount < projects.length) {
     const remaining = projects.length - visibleCount;
-    btn.innerHTML = `<button class="btn btn--ghost projects__more-btn" onclick="showMore()">Voir plus <span>(${remaining})</span></button>`;
-    btn.style.display = 'flex';
+    container.innerHTML = '';
+    const btn = document.createElement('button');
+    btn.className = 'btn btn--ghost projects__more-btn';
+    btn.innerHTML = `Voir plus <span>(${remaining})</span>`;
+    btn.addEventListener('click', showMore);
+    container.appendChild(btn);
+    container.style.display = 'flex';
   } else {
-    btn.style.display = 'none';
+    container.style.display = 'none';
   }
 }
 
