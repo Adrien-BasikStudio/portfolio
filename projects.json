@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "title": "Basik ERP : ERP/CRM complet en PHP vanilla",
+      "shortDesc": "ERP multi-modules développé de A à Z en PHP 8.2 : CRM, ventes, comptabilité, RH, achats. 68 pages, 40+ tables, 0 framework.",
+      "description": "Conception et développement complet d'un ERP/CRM de A à Z en PHP vanilla pour Basik Studio. Déployé en production sur crm.basik-studio.ch.\n\nCRM : pipeline Kanban drag & drop, gestion entreprises/contacts, suivi d'activités, portail client avec acceptation de devis en ligne.\n\nVentes : devis, factures, avoirs, QR-facture suisse ISO 20022, relances automatiques, abonnements récurrents, dashboard commercial.\n\nComptabilité : plan comptable PME suisse (classes 1-7), journal double entrée, bilan actif/passif, décompte TVA trimestriel, clôture comptable, import relevé bancaire.\n\nRH : fiches collaborateurs, calcul charges sociales suisses (AVS/AC/LPP/LAA/AF/IS), bulletins de salaire PDF, pointage mobile, gestion congés avec détection de conflits, barèmes IS pour 10 cantons, déclaration AVS export CSV/XML.\n\nAdministration : 2FA TOTP, journal d'audit, backup ZIP, API REST Bearer token.",
+      "tags": [
+        "Web",
+        "PHP",
+        "ERP"
+      ],
+      "image": "",
+      "url": "",
+      "year": "2024",
+      "role": "Développeur full-stack",
+      "stack": ["PHP 8.2+", "MySQL", "Alpine.js", "FPDF", "PHPMailer"],
+      "gallery": []
+    },
+    {
       "title": "Basik Talents : plateforme de gestion de stages",
       "shortDesc": "Plateforme numérique pour la gestion et le placement de stagiaires, reliant stagiaires, formateurs et entreprises.",
       "description": "Conception et développement de Basik Talents, une plateforme web qui centralise la gestion des stages. Trois rôles distincts : les stagiaires gèrent leur dossier et suivent leur progression, les administrateurs supervisent les processus, et les entreprises consultent les profils sélectionnés. Projet réalisé sous Basik Studio, pensé pour les établissements de formation et le tissu économique local.",
