@@ -660,43 +660,118 @@ document.querySelectorAll('.tool img').forEach(img => {
   if (img.complete && !img.naturalWidth) hide();
 });
 
-// ===== Scroll Cards (process section) =====
-function initScrollCards() {
-  const items = [...document.querySelectorAll('.sc-item')];
-  if (!items.length) return;
+// ===== Système solaire des outils =====
+// Chaque orbite tourne ; les logos restent droits (contre-rotation) ;
+// survol = tout s'arrête ; clic/survol = nom affiché.
+function buildSolarSystem() {
+  const solar = document.getElementById('solar');
+  if (!solar) return;
 
-  const update = () => {
-    const vh = window.innerHeight;
-    items.forEach((item, i) => {
-      const card = item.querySelector('.sc-card');
-      if (!card) return;
+  // Outils répartis du centre vers l'extérieur (4 orbites)
+  const rings = [
+    { r: 86,  dur: 46, tools: [
+      { name: 'Figma',          img: 'https://cdn.simpleicons.org/figma' },
+      { name: 'Photoshop',      img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg' },
+      { name: 'Illustrator',    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg' },
+      { name: 'InDesign',       img: 'images/icons/indesign.svg' },
+    ]},
+    { r: 152, dur: 62, tools: [
+      { name: 'After Effects',  img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg' },
+      { name: 'Premiere',       img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg' },
+      { name: 'Lightroom',      img: 'images/icons/lightroom.svg' },
+      { name: 'DaVinci Resolve',img: 'https://cdn.simpleicons.org/davinciresolve' },
+      { name: 'Canva',          img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
+      { name: 'Unity',          img: 'https://cdn.simpleicons.org/unity/000000' },
+    ]},
+    { r: 224, dur: 80, tools: [
+      { name: 'HTML5',          img: 'https://cdn.simpleicons.org/html5' },
+      { name: 'CSS3',           img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript',     img: 'https://cdn.simpleicons.org/javascript' },
+      { name: 'WordPress',      img: 'https://cdn.simpleicons.org/wordpress' },
+      { name: 'VS Code',        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+      { name: 'Git',            img: 'https://cdn.simpleicons.org/git' },
+      { name: 'Claude',         img: 'https://cdn.simpleicons.org/claude' },
+      { name: 'ChatGPT',        img: 'https://unpkg.com/@lobehub/icons-static-svg/icons/openai.svg' },
+    ]},
+    { r: 298, dur: 100, tools: [
+      { name: 'Notion',         img: 'https://cdn.simpleicons.org/notion' },
+      { name: 'Slack',          img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg' },
+      { name: 'Trello',         img: 'https://cdn.simpleicons.org/trello' },
+      { name: 'Google Workspace', img: 'https://cdn.simpleicons.org/googledrive' },
+      { name: 'Microsoft 365',  img: 'images/icons/microsoft365.svg' },
+      { name: 'Mailchimp',      img: 'https://cdn.simpleicons.org/mailchimp/000000' },
+      { name: 'Meta Business',  img: 'https://cdn.simpleicons.org/meta' },
+      { name: 'Google Ads',     img: 'https://cdn.simpleicons.org/googleads' },
+      { name: 'Google Analytics', img: 'https://cdn.simpleicons.org/googleanalytics' },
+      { name: 'Infomaniak',     img: 'https://cdn.simpleicons.org/infomaniak/000000' },
+    ]},
+  ];
 
-      // Combien de cartes suivantes sont déjà "posées sur la pile" (visible au centre)
-      let covered = 0;
-      for (let j = i + 1; j < items.length; j++) {
-        const top = items[j].querySelector('.sc-card').getBoundingClientRect().top;
-        if (top <= vh * 0.55) covered++;
-      }
+  const stage = document.createElement('div');
+  stage.className = 'solar__stage';
 
-      if (covered > 0) {
-        const ty = -(covered * 8);
-        const s  = Math.max(0.88, 1 - covered * 0.03);
-        const b  = Math.max(0.50, 1 - covered * 0.14);
-        card.style.transform = `translateY(${ty}px) scale(${s.toFixed(3)})`;
-        card.style.filter    = `brightness(${b.toFixed(2)})`;
-      } else {
-        card.style.transform = '';
-        card.style.filter    = '';
-      }
+  // Noyau central
+  const core = document.createElement('div');
+  core.className = 'solar__core';
+  core.innerHTML = '<span>28</span><small>outils</small>';
+  stage.appendChild(core);
+
+  rings.forEach(ring => {
+    // Cercle pointillé (statique)
+    const orbitLine = document.createElement('div');
+    orbitLine.className = 'orbit-line';
+    orbitLine.style.width = orbitLine.style.height = (ring.r * 2) + 'px';
+    stage.appendChild(orbitLine);
+
+    // Rotor (tourne) qui porte les satellites
+    const rotor = document.createElement('div');
+    rotor.className = 'rotor';
+    rotor.style.setProperty('--dur', ring.dur + 's');
+
+    ring.tools.forEach((tool, i) => {
+      const angle = (360 / ring.tools.length) * i;
+
+      const sat = document.createElement('div');
+      sat.className = 'sat';
+      sat.style.transform = `rotate(${angle}deg) translateX(${ring.r}px) rotate(${-angle}deg)`;
+
+      const inner = document.createElement('div');
+      inner.className = 'sat__inner';
+      inner.style.setProperty('--dur', ring.dur + 's');
+
+      const btn = document.createElement('button');
+      btn.className = 'sat__btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', tool.name);
+
+      const img = document.createElement('img');
+      img.src = tool.img;
+      img.alt = tool.name;
+      img.loading = 'lazy';
+      img.addEventListener('error', () => sat.remove());
+
+      const label = document.createElement('span');
+      label.className = 'sat__name';
+      label.textContent = tool.name;
+
+      btn.appendChild(img);
+      btn.appendChild(label);
+      // Clic = fige le nom (utile sur mobile)
+      btn.addEventListener('click', () => btn.classList.toggle('is-pinned'));
+
+      inner.appendChild(btn);
+      sat.appendChild(inner);
+      rotor.appendChild(sat);
     });
-  };
 
-  window.addEventListener('scroll', update, { passive: true });
-  update();
+    stage.appendChild(rotor);
+  });
+
+  solar.appendChild(stage);
 }
 
 // ===== Init =====
 loadProjects();
 loadCardStack();
-initScrollCards();
+buildSolarSystem();
 initCanvas();

@@ -1040,147 +1040,231 @@ body {
 .expertise__footer p { font-size: 14px; color: var(--gray-3); }
 
 /* ===== PROCESS ===== */
-.process { background: #0d0d0d; }
-.process .section__header h2 { color: var(--dark-text); }
-.process .process__intro { color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.7; margin-top: 14px; max-width: 620px; }
-.process .label { color: var(--accent-bright); }
-.process .container { padding-bottom: 64px; }
+.process { background: var(--gray-1); }
+.process__intro { color: var(--gray-4); font-size: 15px; line-height: 1.7; margin-top: 14px; max-width: 620px; }
 
-/* ===== Scroll Cards — petites cartes empilées ===== */
+/* ===== Cartes empilées (deck sticky, non immersif) ===== */
 .sc-track {
-  position: relative;
-  padding-bottom: 80px;
-}
-
-.sc-item {
-  height: 90vh;
-}
-.sc-item--last {
-  height: 60vh;
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 0 24px 40px;
 }
 
 .sc-card {
   position: sticky;
-  top: calc(50vh - 140px);
-  width: min(460px, calc(100% - 48px));
-  height: 280px;
-  margin: 0 auto;
+  height: 240px;
+  margin-bottom: 26px;
   border-radius: 18px;
   overflow: hidden;
-  padding: 28px 30px 26px;
-  border: 1px solid rgba(255,255,255,0.09);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transform-origin: top center;
-  transition: transform 0.28s cubic-bezier(0.34,1.2,0.64,1), filter 0.22s ease;
-  will-change: transform;
+  padding: 30px 34px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 -2px 0 rgba(0,0,0,0.04), 0 16px 40px rgba(15,23,42,0.16);
 }
 
-.sc-item:nth-child(1) .sc-card { z-index: 1; background: linear-gradient(145deg, #1c2535 0%, #242f45 100%); }
-.sc-item:nth-child(2) .sc-card { z-index: 2; background: linear-gradient(145deg, #182240 0%, #1e2e55 100%); }
-.sc-item:nth-child(3) .sc-card { z-index: 3; background: linear-gradient(145deg, #152050 0%, #1b2c68 100%); }
-.sc-item:nth-child(4) .sc-card { z-index: 4; background: linear-gradient(145deg, #121e60 0%, #172a7a 100%); }
-.sc-item:nth-child(5) .sc-card { z-index: 5; background: linear-gradient(145deg, #101c70 0%, #1530a0 100%); }
-.sc-item:nth-child(6) .sc-card { z-index: 6; background: linear-gradient(145deg, #0e1a88 0%, #1535b8 100%); }
+/* Chaque carte se cale un peu plus bas que la précédente : la pile reste visible */
+.sc-card:nth-child(1) { top: 110px; z-index: 1; background: linear-gradient(145deg, #1c2535 0%, #242f45 100%); }
+.sc-card:nth-child(2) { top: 134px; z-index: 2; background: linear-gradient(145deg, #182240 0%, #1e2e55 100%); }
+.sc-card:nth-child(3) { top: 158px; z-index: 3; background: linear-gradient(145deg, #152050 0%, #1b2c68 100%); }
+.sc-card:nth-child(4) { top: 182px; z-index: 4; background: linear-gradient(145deg, #121e60 0%, #172a7a 100%); }
+.sc-card:nth-child(5) { top: 206px; z-index: 5; background: linear-gradient(145deg, #101c70 0%, #1530a0 100%); }
+.sc-card:nth-child(6) { top: 230px; z-index: 6; background: linear-gradient(145deg, #0e1a88 0%, #1535b8 100%); margin-bottom: 0; }
 
 .sc-card__ghost {
   position: absolute;
-  bottom: 16px;
-  right: 22px;
-  font-size: 72px;
+  bottom: 10px;
+  right: 24px;
+  font-size: 96px;
   font-weight: 900;
   line-height: 1;
-  color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.05);
   font-family: var(--font);
   user-select: none;
   pointer-events: none;
 }
 
 .sc-card__label {
-  font-size: 10px;
+  display: inline-block;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-bright);
+  margin-bottom: 12px;
 }
 
 .sc-card__title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
-  margin: 10px 0 10px;
+  margin-bottom: 12px;
 }
 
 .sc-card__desc {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.65;
+  font-size: 14px;
+  color: rgba(255,255,255,0.64);
+  line-height: 1.7;
+  max-width: 540px;
 }
 
 @media (max-width: 600px) {
-  .sc-item { height: 80vh; }
-  .sc-card { width: calc(100% - 32px); height: 250px; padding: 22px 24px; top: calc(50vh - 125px); }
-  .sc-card__title { font-size: 19px; }
+  .sc-card { height: 220px; padding: 24px 26px; }
+  .sc-card:nth-child(1) { top: 88px; }
+  .sc-card:nth-child(2) { top: 106px; }
+  .sc-card:nth-child(3) { top: 124px; }
+  .sc-card:nth-child(4) { top: 142px; }
+  .sc-card:nth-child(5) { top: 160px; }
+  .sc-card:nth-child(6) { top: 178px; }
+  .sc-card__title { font-size: 20px; }
+  .sc-card__ghost { font-size: 72px; }
 }
 
-/* ===== STACK / OUTILS ===== */
+/* ===== STACK / OUTILS — système solaire ===== */
 .stack { background: var(--black); }
 
-.stack__grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+.stack__hint {
+  text-align: center;
+  color: var(--gray-4);
+  font-size: 13px;
+  margin: 6px auto 0;
+  max-width: 460px;
 }
 
-.tool {
-  background: #ffffff;
-  border: 1px solid var(--gray-2);
-  border-radius: 10px;
-  padding: 18px 8px 14px;
+.solar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.solar__stage {
+  position: relative;
+  width: 660px;
+  height: 660px;
+  flex: 0 0 auto;
+}
+
+/* Cercles pointillés statiques */
+.orbit-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed var(--gray-2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Noyau central */
+.solar__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #2a6fd0 0%, #143a78 100%);
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  text-align: center;
-  transition: transform var(--trans), border-color var(--trans), box-shadow var(--trans);
+  box-shadow: 0 8px 28px rgba(20,58,120,0.45);
+  z-index: 5;
 }
-.tool:hover {
-  transform: translateY(-3px);
-  border-color: rgba(61,158,255,0.4);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+.solar__core span { font-size: 26px; font-weight: 800; line-height: 1; }
+.solar__core small { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; margin-top: 3px; }
+
+/* Rotor : porte les satellites et tourne */
+.rotor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: solar-spin var(--dur, 60s) linear infinite;
 }
 
-.tool img {
-  width: 36px;
-  height: 36px;
-  filter: grayscale(100%);
-  opacity: 0.55;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-.tool:hover img {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.08);
+/* Satellite : placé sur l'orbite (statique dans le rotor) */
+.sat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
 }
 
-.tool span {
-  font-size: 12px;
+/* Contre-rotation : le logo reste droit */
+.sat__inner {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 50px;
+  height: 50px;
+  animation: solar-spin-rev var(--dur, 60s) linear infinite;
+}
+
+/* Bulle blanche cliquable (lisible dans les deux thèmes) */
+.sat__btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.10);
+  box-shadow: 0 4px 14px rgba(15,23,42,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sat__btn:hover,
+.sat__btn:focus-visible { transform: scale(1.16); box-shadow: 0 6px 20px rgba(15,23,42,0.22); outline: none; }
+.sat__btn img { width: 28px; height: 28px; pointer-events: none; }
+
+/* Nom de l'outil (tooltip) */
+.sat__name {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111722;
+  color: #fff;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--gray-4);
-  line-height: 1.3;
+  white-space: nowrap;
+  padding: 4px 9px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+  z-index: 6;
 }
-.tool:hover span { color: var(--white); }
+.sat__btn:hover .sat__name,
+.sat__btn:focus-visible .sat__name,
+.sat__btn.is-pinned .sat__name { opacity: 1; }
 
-@media (max-width: 900px) {
-  .stack__grid { grid-template-columns: repeat(4, 1fr); }
+/* Survol du système = tout se fige */
+.solar__stage:hover .rotor,
+.solar__stage:hover .sat__inner { animation-play-state: paused; }
+
+@keyframes solar-spin     { to { transform: rotate(360deg); } }
+@keyframes solar-spin-rev { to { transform: rotate(-360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rotor, .sat__inner { animation: none; }
 }
-@media (max-width: 540px) {
-  .stack__grid { grid-template-columns: repeat(3, 1fr); }
-  .tool img { width: 30px; height: 30px; }
-  .tool span { font-size: 11px; }
+
+/* Responsive : on réduit le système entier */
+@media (max-width: 720px) {
+  .solar__stage { transform: scale(0.62); margin: -125px 0; }
+}
+@media (max-width: 460px) {
+  .solar__stage { transform: scale(0.5); margin: -165px 0; }
 }
 
 /* ===== EN CE MOMENT (section sombre) ===== */
