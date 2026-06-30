@@ -112,7 +112,7 @@ function buildMeta(p) {
 }
 
 function cardHTML(p, i) {
-  const meta = buildMeta(p);
+  const ctaLabel = p.url ? 'Voir le projet →' : 'En savoir plus →';
   return `
     <article class="project-card" data-index="${i}" role="button" tabindex="0" aria-label="Voir le projet ${p.title}">
       <div class="project-card__media">
@@ -126,8 +126,8 @@ function cardHTML(p, i) {
           ${(p.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
         </div>
         <h3 class="project-card__title">${p.title}</h3>
-        ${meta ? `<div class="project-card__meta">${meta}</div>` : ''}
         <p class="project-card__desc">${p.shortDesc || ''}</p>
+        <span class="project-card__cta">${ctaLabel}</span>
       </div>
     </article>`;
 }
