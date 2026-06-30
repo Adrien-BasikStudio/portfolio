@@ -1044,96 +1044,85 @@ body {
 .process .section__header h2 { color: var(--dark-text); }
 .process .process__intro { color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.7; margin-top: 14px; max-width: 620px; }
 .process .label { color: var(--accent-bright); }
-.process .container { padding-bottom: 56px; }
+.process .container { padding-bottom: 64px; }
 
-/* ===== Scroll Cards ===== */
+/* ===== Scroll Cards — petites cartes empilées ===== */
 .sc-track {
   position: relative;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 24px;
+  padding-bottom: 80px;
 }
 
 .sc-item {
-  height: 140vh;
+  height: 90vh;
 }
 .sc-item--last {
-  height: auto;
-  padding-bottom: 100px;
+  height: 60vh;
 }
 
 .sc-card {
   position: sticky;
-  top: 80px;
-  height: calc(100vh - 140px);
-  border-radius: 20px;
+  top: calc(50vh - 140px);
+  width: min(460px, calc(100% - 48px));
+  height: 280px;
+  margin: 0 auto;
+  border-radius: 18px;
   overflow: hidden;
+  padding: 28px 30px 26px;
+  border: 1px solid rgba(255,255,255,0.09);
   display: flex;
-  align-items: flex-end;
-  padding: 48px;
-  border: 1px solid rgba(255,255,255,0.07);
+  flex-direction: column;
+  justify-content: space-between;
   transform-origin: top center;
-  transition: transform 0.18s ease-out, filter 0.18s ease-out;
+  transition: transform 0.28s cubic-bezier(0.34,1.2,0.64,1), filter 0.22s ease;
   will-change: transform;
 }
 
-.sc-item:nth-child(1) .sc-card { z-index: 1; background: linear-gradient(145deg, #161e2d 0%, #1c2840 100%); }
-.sc-item:nth-child(2) .sc-card { z-index: 2; background: linear-gradient(145deg, #142040 0%, #1a2c55 100%); }
-.sc-item:nth-child(3) .sc-card { z-index: 3; background: linear-gradient(145deg, #122250 0%, #173065 100%); }
-.sc-item:nth-child(4) .sc-card { z-index: 4; background: linear-gradient(145deg, #102460 0%, #163275 100%); }
-.sc-item:nth-child(5) .sc-card { z-index: 5; background: linear-gradient(145deg, #0e2270 0%, #1535888 100%); }
-.sc-item:nth-child(6) .sc-card { z-index: 6; background: linear-gradient(145deg, #0c1e88 0%, #1a40b0 100%); }
+.sc-item:nth-child(1) .sc-card { z-index: 1; background: linear-gradient(145deg, #1c2535 0%, #242f45 100%); }
+.sc-item:nth-child(2) .sc-card { z-index: 2; background: linear-gradient(145deg, #182240 0%, #1e2e55 100%); }
+.sc-item:nth-child(3) .sc-card { z-index: 3; background: linear-gradient(145deg, #152050 0%, #1b2c68 100%); }
+.sc-item:nth-child(4) .sc-card { z-index: 4; background: linear-gradient(145deg, #121e60 0%, #172a7a 100%); }
+.sc-item:nth-child(5) .sc-card { z-index: 5; background: linear-gradient(145deg, #101c70 0%, #1530a0 100%); }
+.sc-item:nth-child(6) .sc-card { z-index: 6; background: linear-gradient(145deg, #0e1a88 0%, #1535b8 100%); }
 
 .sc-card__ghost {
   position: absolute;
-  top: 28px;
-  right: 36px;
-  font-size: 130px;
+  bottom: 16px;
+  right: 22px;
+  font-size: 72px;
   font-weight: 900;
   line-height: 1;
-  color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.06);
   font-family: var(--font);
   user-select: none;
   pointer-events: none;
 }
 
-.sc-card__body {
-  position: relative;
-  z-index: 1;
-}
-
 .sc-card__label {
-  display: block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-bright);
-  margin-bottom: 18px;
 }
 
 .sc-card__title {
-  font-size: 40px;
+  font-size: 22px;
   font-weight: 700;
   color: #fff;
-  line-height: 1.15;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin: 10px 0 10px;
 }
 
 .sc-card__desc {
-  font-size: 16px;
-  color: rgba(255,255,255,0.62);
-  line-height: 1.75;
-  max-width: 520px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
 }
 
-@media (max-width: 768px) {
-  .sc-item { height: 110vh; }
-  .sc-item--last { height: auto; padding-bottom: 60px; }
-  .sc-card { top: 64px; height: calc(100vh - 96px); padding: 28px; border-radius: 14px; }
-  .sc-card__ghost { font-size: 80px; right: 22px; top: 18px; }
-  .sc-card__title { font-size: 26px; }
-  .sc-card__desc { font-size: 14px; }
+@media (max-width: 600px) {
+  .sc-item { height: 80vh; }
+  .sc-card { width: calc(100% - 32px); height: 250px; padding: 22px 24px; top: calc(50vh - 125px); }
+  .sc-card__title { font-size: 19px; }
 }
 
 /* ===== STACK / OUTILS ===== */

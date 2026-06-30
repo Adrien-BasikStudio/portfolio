@@ -666,23 +666,27 @@ function initScrollCards() {
   if (!items.length) return;
 
   const update = () => {
+    const vh = window.innerHeight;
     items.forEach((item, i) => {
       const card = item.querySelector('.sc-card');
       if (!card) return;
 
+      // Combien de cartes suivantes sont déjà "posées sur la pile" (visible au centre)
       let covered = 0;
       for (let j = i + 1; j < items.length; j++) {
-        if (items[j].querySelector('.sc-card').getBoundingClientRect().top <= 82) covered++;
+        const top = items[j].querySelector('.sc-card').getBoundingClientRect().top;
+        if (top <= vh * 0.55) covered++;
       }
 
       if (covered > 0) {
-        const s = (Math.max(0.86, 1 - covered * 0.035)).toFixed(3);
-        const b = (Math.max(0.45, 1 - covered * 0.18)).toFixed(2);
-        card.style.transform = `scale(${s})`;
-        card.style.filter = `brightness(${b})`;
+        const ty = -(covered * 8);
+        const s  = Math.max(0.88, 1 - covered * 0.03);
+        const b  = Math.max(0.50, 1 - covered * 0.14);
+        card.style.transform = `translateY(${ty}px) scale(${s.toFixed(3)})`;
+        card.style.filter    = `brightness(${b.toFixed(2)})`;
       } else {
         card.style.transform = '';
-        card.style.filter = '';
+        card.style.filter    = '';
       }
     });
   };
