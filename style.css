@@ -1043,40 +1043,54 @@ body {
 .process { background: var(--gray-1); }
 .process__intro { color: var(--gray-4); font-size: 15px; line-height: 1.7; margin-top: 14px; max-width: 620px; }
 
-/* ===== Cartes empilées (deck sticky, non immersif) ===== */
+/* ===== Pile de cartes révélée au scroll ===== */
 .sc-track {
-  max-width: 720px;
-  margin: 40px auto 0;
-  padding: 0 24px 40px;
+  position: relative;
+  height: 280vh;           /* réserve de scroll pour révéler les 4 cartes */
+}
+
+.sc-stack {
+  position: sticky;
+  top: calc(50vh - 180px);
+  height: 340px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .sc-card {
-  position: sticky;
-  height: 240px;
-  margin-bottom: 26px;
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 320px;
   border-radius: 18px;
+  padding: 34px 38px;
+  background: var(--black);
+  border: 1px solid var(--gray-2);
+  box-shadow: 0 22px 55px rgba(15,23,42,0.16);
   overflow: hidden;
-  padding: 30px 34px;
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 -2px 0 rgba(0,0,0,0.04), 0 16px 40px rgba(15,23,42,0.16);
+  transform-origin: center top;
+  will-change: transform, opacity;
 }
-
-/* Chaque carte se cale un peu plus bas que la précédente : la pile reste visible */
-.sc-card:nth-child(1) { top: 110px; z-index: 1; background: linear-gradient(145deg, #1c2535 0%, #242f45 100%); }
-.sc-card:nth-child(2) { top: 134px; z-index: 2; background: linear-gradient(145deg, #182240 0%, #1e2e55 100%); }
-.sc-card:nth-child(3) { top: 158px; z-index: 3; background: linear-gradient(145deg, #152050 0%, #1b2c68 100%); }
-.sc-card:nth-child(4) { top: 182px; z-index: 4; background: linear-gradient(145deg, #121e60 0%, #172a7a 100%); }
-.sc-card:nth-child(5) { top: 206px; z-index: 5; background: linear-gradient(145deg, #101c70 0%, #1530a0 100%); }
-.sc-card:nth-child(6) { top: 230px; z-index: 6; background: linear-gradient(145deg, #0e1a88 0%, #1535b8 100%); margin-bottom: 0; }
+/* Liseré d'accent en haut de carte */
+.sc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, #6fb6ff 100%);
+}
 
 .sc-card__ghost {
   position: absolute;
-  bottom: 10px;
-  right: 24px;
-  font-size: 96px;
+  bottom: -6px;
+  right: 20px;
+  font-size: 120px;
   font-weight: 900;
   line-height: 1;
-  color: rgba(255,255,255,0.05);
+  color: var(--accent);
+  opacity: 0.07;
   font-family: var(--font);
   user-select: none;
   pointer-events: none;
@@ -1086,56 +1100,70 @@ body {
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--accent-bright);
-  margin-bottom: 12px;
+  color: var(--accent-text);
+  margin-bottom: 14px;
 }
 
 .sc-card__title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
   line-height: 1.2;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .sc-card__desc {
-  font-size: 14px;
-  color: rgba(255,255,255,0.64);
+  font-size: 15px;
+  color: var(--gray-4);
   line-height: 1.7;
-  max-width: 540px;
+  max-width: 520px;
 }
 
+/* Fallback (prefers-reduced-motion) : cartes en liste simple */
+.sc-track.sc-static { height: auto; padding: 40px 0; }
+.sc-track.sc-static .sc-stack { position: static; height: auto; }
+.sc-track.sc-static .sc-card { position: relative; left: auto; right: auto; transform: none !important; opacity: 1 !important; margin: 0 auto 18px; max-width: 572px; }
+
 @media (max-width: 600px) {
-  .sc-card { height: 220px; padding: 24px 26px; }
-  .sc-card:nth-child(1) { top: 88px; }
-  .sc-card:nth-child(2) { top: 106px; }
-  .sc-card:nth-child(3) { top: 124px; }
-  .sc-card:nth-child(4) { top: 142px; }
-  .sc-card:nth-child(5) { top: 160px; }
-  .sc-card:nth-child(6) { top: 178px; }
-  .sc-card__title { font-size: 20px; }
-  .sc-card__ghost { font-size: 72px; }
+  .sc-track { height: 320vh; }
+  .sc-stack { top: calc(50vh - 165px); height: 320px; }
+  .sc-card { height: 300px; padding: 28px 26px; }
+  .sc-card__title { font-size: 21px; }
+  .sc-card__ghost { font-size: 92px; }
 }
 
 /* ===== STACK / OUTILS — système solaire ===== */
-.stack { background: var(--black); }
+.stack { background: var(--black); overflow: hidden; }
+
+.stack__layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  align-items: center;
+  gap: 40px;
+}
+.stack__intro .section__header,
+.stack__intro { margin-bottom: 0; }
 
 .stack__hint {
-  text-align: center;
   color: var(--gray-4);
-  font-size: 13px;
-  margin: 6px auto 0;
-  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 18px;
+  max-width: 320px;
 }
 
 .solar {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
-  overflow: hidden;
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  .stack__layout { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+  .stack__hint { margin-left: auto; margin-right: auto; }
 }
 
 .solar__stage {

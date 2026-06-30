@@ -770,8 +770,61 @@ function buildSolarSystem() {
   solar.appendChild(stage);
 }
 
+// ===== Cartes process révélées au scroll =====
+function initProcessStack() {
+  const track = document.getElementById('sc-track');
+  const stack = document.getElementById('sc-stack');
+  if (!track || !stack) return;
+
+  const cards = [...stack.querySelectorAll('.sc-card')];
+  const n = cards.length;
+
+  // Respect de prefers-reduced-motion : liste statique
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    track.classList.add('sc-static');
+    return;
+  }
+
+  const update = () => {
+    const rect = track.getBoundingClientRect();
+    const range = track.offsetHeight - window.innerHeight;
+    const scrolled = Math.min(Math.max(-rect.top, 0), range);
+    const progress = range > 0 ? scrolled / range : 0;
+    const pos = progress * (n - 1);   // index de la carte active (flottant)
+
+    cards.forEach((card, i) => {
+      const d = i - pos;
+      let ty, sc, op, z;
+
+      if (d >= 0) {
+        // carte en attente : empilée derrière, légèrement plus bas et réduite
+        const k = Math.min(d, 3);
+        ty = k * 18;
+        sc = 1 - k * 0.05;
+        op = 1;
+        z  = 50 - Math.round(k);
+      } else {
+        // carte déjà vue : s'envole vers le haut en disparaissant
+        ty = d * 140;
+        sc = 1;
+        op = Math.max(0, 1 + d / 0.8);
+        z  = 60;
+      }
+
+      card.style.transform = `translateY(${ty.toFixed(1)}px) scale(${sc.toFixed(3)})`;
+      card.style.opacity   = op.toFixed(2);
+      card.style.zIndex    = z;
+    });
+  };
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
 // ===== Init =====
 loadProjects();
 loadCardStack();
 buildSolarSystem();
+initProcessStack();
 initCanvas();
