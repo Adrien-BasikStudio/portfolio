@@ -1046,7 +1046,7 @@ body {
 /* ===== Pile de cartes révélée au scroll (titre fixé en haut) ===== */
 .sc-track {
   position: relative;
-  height: 300vh;           /* réserve de scroll pour révéler les 4 cartes */
+  height: 200vh;           /* réserve de scroll pour révéler les 4 cartes */
 }
 
 /* Bloc épinglé : header + pile restent visibles pendant tout le scroll */
@@ -1054,10 +1054,12 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  padding-top: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
 }
-.sc-pin .section__header { margin-bottom: 52px; }
+.sc-pin .section__header { margin-bottom: 44px; }
 
 .sc-stack {
   position: relative;
@@ -1131,13 +1133,12 @@ body {
 
 /* Fallback (prefers-reduced-motion) : cartes en liste simple */
 .sc-track.sc-static { height: auto; }
-.sc-track.sc-static .sc-pin { position: static; height: auto; padding-top: 0; overflow: visible; }
+.sc-track.sc-static .sc-pin { position: static; height: auto; display: block; overflow: visible; }
 .sc-track.sc-static .sc-stack { position: static; height: auto; margin-top: 24px; }
 .sc-track.sc-static .sc-card { position: relative; left: auto; right: auto; transform: none !important; opacity: 1 !important; margin: 0 0 18px; }
 
 @media (max-width: 600px) {
-  .sc-track { height: 320vh; }
-  .sc-pin { padding-top: 80px; }
+  .sc-track { height: 230vh; }
   .sc-stack { height: 320px; }
   .sc-card { height: 300px; padding: 28px 26px; }
   .sc-card__title { font-size: 21px; }
