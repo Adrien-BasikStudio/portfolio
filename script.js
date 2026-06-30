@@ -793,23 +793,16 @@ function initProcessStack() {
     const pos = progress * (n - 1);   // index de la carte active (flottant)
 
     cards.forEach((card, i) => {
-      const d = i - pos;
+      const d = i - pos;          // 0 = carte au premier plan
+      const ad = Math.abs(d);
       let ty, sc, op, z;
 
-      if (d >= 0) {
-        // carte en attente : empilée derrière, légèrement plus bas et réduite
-        const k = Math.min(d, 3);
-        ty = k * 18;
-        sc = 1 - k * 0.05;
-        op = 1;
-        z  = 50 - Math.round(k);
-      } else {
-        // carte déjà vue : s'envole vers le haut en disparaissant
-        ty = d * 140;
-        sc = 1;
-        op = Math.max(0, 1 + d / 0.8);
-        z  = 60;
-      }
+      // Une seule carte visible à la fois : les autres restent masquées
+      // (en attente sous la pile, déjà vues au-dessus) puis se croisent en fondu.
+      op = Math.max(0, 1 - ad / 0.85);
+      sc = 1 - Math.min(ad, 1) * 0.05;
+      z  = Math.round(100 - ad * 20) + (d < 0 ? -1 : 0);
+      ty = d >= 0 ? d * 46 : d * 80;   // attente : un peu plus bas ; vue : remonte
 
       card.style.transform = `translateY(${ty.toFixed(1)}px) scale(${sc.toFixed(3)})`;
       card.style.opacity   = op.toFixed(2);

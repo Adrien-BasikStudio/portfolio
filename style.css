@@ -1043,19 +1043,27 @@ body {
 .process { background: var(--gray-1); }
 .process__intro { color: var(--gray-4); font-size: 15px; line-height: 1.7; margin-top: 14px; max-width: 620px; }
 
-/* ===== Pile de cartes révélée au scroll ===== */
+/* ===== Pile de cartes révélée au scroll (titre fixé en haut) ===== */
 .sc-track {
   position: relative;
-  height: 280vh;           /* réserve de scroll pour révéler les 4 cartes */
+  height: 300vh;           /* réserve de scroll pour révéler les 4 cartes */
 }
 
-.sc-stack {
+/* Bloc épinglé : header + pile restent visibles pendant tout le scroll */
+.sc-pin {
   position: sticky;
-  top: calc(50vh - 180px);
+  top: 0;
+  height: 100vh;
+  padding-top: 84px;
+  overflow: hidden;
+}
+.sc-pin .section__header { margin-bottom: 52px; }
+
+.sc-stack {
+  position: relative;
   height: 340px;
   max-width: 620px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
 .sc-card {
@@ -1122,13 +1130,15 @@ body {
 }
 
 /* Fallback (prefers-reduced-motion) : cartes en liste simple */
-.sc-track.sc-static { height: auto; padding: 40px 0; }
-.sc-track.sc-static .sc-stack { position: static; height: auto; }
-.sc-track.sc-static .sc-card { position: relative; left: auto; right: auto; transform: none !important; opacity: 1 !important; margin: 0 auto 18px; max-width: 572px; }
+.sc-track.sc-static { height: auto; }
+.sc-track.sc-static .sc-pin { position: static; height: auto; padding-top: 0; overflow: visible; }
+.sc-track.sc-static .sc-stack { position: static; height: auto; margin-top: 24px; }
+.sc-track.sc-static .sc-card { position: relative; left: auto; right: auto; transform: none !important; opacity: 1 !important; margin: 0 0 18px; }
 
 @media (max-width: 600px) {
   .sc-track { height: 320vh; }
-  .sc-stack { top: calc(50vh - 165px); height: 320px; }
+  .sc-pin { padding-top: 80px; }
+  .sc-stack { height: 320px; }
   .sc-card { height: 300px; padding: 28px 26px; }
   .sc-card__title { font-size: 21px; }
   .sc-card__ghost { font-size: 92px; }
