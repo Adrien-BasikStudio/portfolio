@@ -660,7 +660,39 @@ document.querySelectorAll('.tool img').forEach(img => {
   if (img.complete && !img.naturalWidth) hide();
 });
 
+// ===== Scroll Cards (process section) =====
+function initScrollCards() {
+  const items = [...document.querySelectorAll('.sc-item')];
+  if (!items.length) return;
+
+  const update = () => {
+    items.forEach((item, i) => {
+      const card = item.querySelector('.sc-card');
+      if (!card) return;
+
+      let covered = 0;
+      for (let j = i + 1; j < items.length; j++) {
+        if (items[j].querySelector('.sc-card').getBoundingClientRect().top <= 82) covered++;
+      }
+
+      if (covered > 0) {
+        const s = (Math.max(0.86, 1 - covered * 0.035)).toFixed(3);
+        const b = (Math.max(0.45, 1 - covered * 0.18)).toFixed(2);
+        card.style.transform = `scale(${s})`;
+        card.style.filter = `brightness(${b})`;
+      } else {
+        card.style.transform = '';
+        card.style.filter = '';
+      }
+    });
+  };
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
 // ===== Init =====
 loadProjects();
 loadCardStack();
+initScrollCards();
 initCanvas();
