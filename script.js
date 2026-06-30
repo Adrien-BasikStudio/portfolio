@@ -56,11 +56,11 @@ const statProjects = document.getElementById('stat-projects');
 
 let allProjects = [];
 let currentProjects = [];
-let visibleCount = 0;
 
-function getPageSize() {
-  return window.innerWidth <= 768 ? 3 : 6;
-}
+const PAGE_SIZE = 6;
+let windowStart = 0;
+let navPrev = null;
+let navNext = null;
 
 async function loadProjects() {
   try {
@@ -68,13 +68,9 @@ async function loadProjects() {
     const data = await res.json();
     allProjects = data.projects || [];
 
-    // Compteur animé
     animateCounter(statProjects, allProjects.length);
-
-    // Filtres dynamiques
     buildFilters(allProjects);
-
-    // Affichage
+    setupProjectsNav();
     renderProjects(allProjects);
   } catch (e) {
     grid.innerHTML = '<p style="color:#6b6b6b;grid-column:1/-1">Impossible de charger les projets.</p>';
@@ -140,60 +136,74 @@ function attachCardEvents(projects) {
 
 function renderProjects(projects) {
   currentProjects = projects;
-  visibleCount = 0;
+  windowStart = 0;
 
   if (!projects.length) {
-    grid.innerHTML = '<p style="color:#6b6b6b;grid-column:1/-1;padding:40px 0">Aucun projet dans cette catégorie.</p>';
-    updateMoreBtn(projects);
+    grid.innerHTML = '<p style="color:#6b6b6b;flex:1;text-align:center;padding:40px 0">Aucun projet dans cette catégorie.</p>';
+    updateNavButtons(0);
     return;
   }
 
-  visibleCount = Math.min(getPageSize(), projects.length);
-  grid.innerHTML = projects.slice(0, visibleCount).map((p, i) => cardHTML(p, i)).join('');
-  attachCardEvents(projects);
-  updateMoreBtn(projects);
+  renderWindow();
 }
 
-function showMore() {
-  const pageSize = getPageSize();
-  const from = visibleCount;
-  const to = Math.min(visibleCount + pageSize, currentProjects.length);
+function renderWindow() {
+  const len = currentProjects.length;
+  const size = Math.min(PAGE_SIZE, len);
 
-  currentProjects.slice(from, to).forEach((p, i) => {
-    const div = document.createElement('div');
-    div.innerHTML = cardHTML(p, from + i);
-    const card = div.firstElementChild;
-    grid.appendChild(card);
-    const open = () => openModal(currentProjects[+card.dataset.index]);
-    card.addEventListener('click', open);
-    card.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
-  });
-
-  visibleCount = to;
-  updateMoreBtn(currentProjects);
+  grid.innerHTML = '';
+  for (let i = 0; i < size; i++) {
+    const idx = (windowStart + i) % len;
+    grid.insertAdjacentHTML('beforeend', cardHTML(currentProjects[idx], idx));
+  }
+  attachCardEvents(currentProjects);
+  updateNavButtons(len);
 }
 
-function updateMoreBtn(projects) {
-  let container = document.getElementById('projects-more');
-  if (!container) {
-    container = document.createElement('div');
-    container.id = 'projects-more';
-    container.className = 'projects__more';
-    grid.parentElement.appendChild(container);
-  }
+function navigate(dir) {
+  const len = currentProjects.length;
+  if (len <= PAGE_SIZE) return;
 
-  if (visibleCount < projects.length) {
-    const remaining = projects.length - visibleCount;
-    container.innerHTML = '';
-    const btn = document.createElement('button');
-    btn.className = 'btn btn--ghost projects__more-btn';
-    btn.innerHTML = `Voir plus <span>(${remaining})</span>`;
-    btn.addEventListener('click', showMore);
-    container.appendChild(btn);
-    container.style.display = 'flex';
-  } else {
-    container.style.display = 'none';
-  }
+  grid.style.transition = 'opacity 0.13s ease, transform 0.13s ease';
+  grid.style.opacity = '0.45';
+  grid.style.transform = dir > 0 ? 'translateX(-1.5%)' : 'translateX(1.5%)';
+
+  setTimeout(() => {
+    windowStart = ((windowStart + dir) % len + len) % len;
+    renderWindow();
+    grid.style.transform = dir > 0 ? 'translateX(1%)' : 'translateX(-1%)';
+    grid.style.opacity = '1';
+    requestAnimationFrame(() => {
+      grid.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      grid.style.transform = 'translateX(0)';
+    });
+  }, 140);
+}
+
+function setupProjectsNav() {
+  const controls = document.createElement('div');
+  controls.className = 'projects__controls';
+
+  navPrev = document.createElement('button');
+  navPrev.className = 'projects__nav-btn';
+  navPrev.setAttribute('aria-label', 'Projets précédents');
+  navPrev.textContent = '←';
+  navPrev.addEventListener('click', () => navigate(-1));
+
+  navNext = document.createElement('button');
+  navNext.className = 'projects__nav-btn';
+  navNext.setAttribute('aria-label', 'Projets suivants');
+  navNext.textContent = '→';
+  navNext.addEventListener('click', () => navigate(+1));
+
+  controls.appendChild(navPrev);
+  controls.appendChild(navNext);
+  grid.parentElement.appendChild(controls);
+}
+
+function updateNavButtons(len) {
+  if (!navPrev) return;
+  navPrev.parentElement.style.display = len > PAGE_SIZE ? 'flex' : 'none';
 }
 
 // ===== Modal =====

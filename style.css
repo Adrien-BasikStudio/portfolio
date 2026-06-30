@@ -482,18 +482,30 @@ body {
   margin-bottom: 48px;
   flex-wrap: wrap;
 }
-.projects__more {
+.projects__controls {
   display: flex;
   justify-content: center;
-  margin-top: 48px;
+  gap: 12px;
+  margin-top: 28px;
 }
-.projects__more-btn {
-  gap: 10px;
+.projects__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.07);
+  color: var(--dark-text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
 }
-.projects__more-btn span {
-  font-size: 12px;
-  color: var(--gray-3);
-  font-weight: 400;
+.projects__nav-btn:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.45);
 }
 .filter {
   padding: 8px 20px;
@@ -512,10 +524,6 @@ body {
   color: var(--accent-bright);
   background: rgba(111,182,255,0.14);
 }
-/* Bouton Voir plus dans la section sombre */
-.projects .btn--ghost { color: var(--dark-text); border-color: rgba(255,255,255,0.18); }
-.projects .btn--ghost:hover { border-color: var(--dark-text); }
-.projects__more-btn span { color: var(--dark-muted); }
 /* Accordion strips layout */
 .projects__grid {
   display: flex;
