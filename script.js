@@ -59,7 +59,7 @@ let currentProjects = [];
 let visibleCount = 0;
 
 function getPageSize() {
-  return window.innerWidth <= 768 ? 3 : 9;
+  return window.innerWidth <= 768 ? 3 : 6;
 }
 
 async function loadProjects() {
@@ -115,13 +115,11 @@ function cardHTML(p, i) {
   const ctaLabel = p.url ? 'Voir le projet →' : 'En savoir plus →';
   return `
     <article class="project-card" data-index="${i}" role="button" tabindex="0" aria-label="Voir le projet ${p.title}">
-      <div class="project-card__media">
-        ${p.image
-          ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" loading="lazy" />`
-          : `<div class="project-card__img--placeholder">◈</div>`
-        }
-      </div>
-      <div class="project-card__body">
+      ${p.image
+        ? `<img class="project-card__img" src="${p.image}" alt="${p.title}" loading="lazy" />`
+        : `<div class="project-card__img--placeholder">◈</div>`
+      }
+      <div class="project-card__overlay">
         <div class="project-card__tags">
           ${(p.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join('')}
         </div>
