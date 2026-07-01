@@ -1054,6 +1054,7 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh;          /* évite la bande blanche liée à la barre d'adresse mobile */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1137,12 +1138,26 @@ body {
 .sc-track.sc-static .sc-stack { position: static; height: auto; margin-top: 24px; }
 .sc-track.sc-static .sc-card { position: relative; left: auto; right: auto; transform: none !important; opacity: 1 !important; margin: 0 0 18px; }
 
+/* Mobile : pas de pin ni d'animation scroll (source de bandes blanches),
+   on affiche les 4 étapes en liste simple */
 @media (max-width: 600px) {
-  .sc-track { height: 230vh; }
-  .sc-stack { height: 320px; }
-  .sc-card { height: 300px; padding: 28px 26px; }
-  .sc-card__title { font-size: 21px; }
-  .sc-card__ghost { font-size: 92px; }
+  .sc-track { height: auto; }
+  .sc-pin { position: static; height: auto; display: block; overflow: visible; }
+  .sc-stack { position: static; height: auto; max-width: 100%; margin: 24px 0 0; }
+  .sc-card {
+    position: relative;
+    left: auto; right: auto;
+    height: auto;
+    padding: 26px 24px;
+    margin: 0 0 16px;
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.10);
+  }
+  .sc-card:last-child { margin-bottom: 0; }
+  .sc-card__title { font-size: 20px; }
+  .sc-card__desc { max-width: none; }
+  .sc-card__ghost { font-size: 84px; bottom: -2px; }
 }
 
 /* ===== STACK / OUTILS — système solaire ===== */
